@@ -1,1 +1,108 @@
-/* Empty. Add your own CSS if you like */
+/*
+/!* Empty. Add your own CSS if you like *!/
+body {
+    cursor: auto;
+}
+
+#fhm_page .scroll,
+.fhm_container {
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+}
+
+.fhm_row {
+    /!* position: absolute; *!/
+    height: 33.3%;
+    left:0;
+    right:0;
+    background-color:#FFFFFF;
+    clear:both;
+}
+.fhm_item {
+    height: 100%;
+    width:49.95%;
+    background-color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    float:left;
+    text-align: center;
+}*/
+html, body,
+.scroll /* because the <ion-content> content is placed inside a div.scroll */
+{
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*.container > .cell-row {
+    flex: 1;
+    display: flex;
+}
+.cell-row > div {
+    flex: 1;
+    flex-grow: 1;
+    color: #fff;
+
+    /!* Flex for these containers (cells) *!/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}*/
+
+.container i[class^="ion-"] {
+    font-size: 90px;
+}
+
+
+
+
+
+/* doesn't matter */
+/*.bar-header {
+    background-color: #241D54 !important;
+    border-bottom: 0 !important;
+}
+.bar-header h1 {
+    color: #fff !important;
+    font-size: 20px !important;
+}*/
+/*
+
+.cell-row-1 {
+    background-color: #000;
+}
+.cell-row-2 {
+    background-color: #ccc;
+}
+.cell-row-3 {
+    background-color: #eee;
+}
+
+.cell-1 {
+    background-color: #C5DCFC;
+}
+.cell-2 {
+    background-color: #262B69;
+}
+.cell-3 {
+    background-color: #A0C5FA;
+}
+.cell-4 {
+    background-color: #B3D0FC;
+}
+.cell-5 {
+    background-color: #73A7F9;
+}
+.cell-6 {
+    background-color: #8CB9FA;
+}
+
+*/
