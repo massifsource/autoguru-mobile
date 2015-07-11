@@ -28,18 +28,18 @@ body {
 
 
 .col-home{
-    /*background-color:gray !important;*/
+    /*background-color:#28a54c !important;*/
     /*border:thin solid black;*/
     text-align:center !important;
 }
 
-.homeContainer i{
-
+.homeContainer p{
+    font-size: large;
 }
 
 .home-icon:before,
 .home-icon{
-    font-size:150px !important;
+    font-size:100px !important;
     display:flex !important;
     font-size-adjust: inherit;
 }
@@ -73,5 +73,9 @@ body {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+}
+
+.home-icon-text {
+    font-size: large;
 }
 
