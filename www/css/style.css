@@ -1,108 +1,46 @@
-/*
-/!* Empty. Add your own CSS if you like *!/
 body {
     cursor: auto;
 }
+.scroll{
+    height: 100% !important;
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    -webkit-box-direction: normal !important;
+    -moz-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    -moz-box-orient: vertical !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
 
-#fhm_page .scroll,
-.fhm_container {
-    position:absolute;
-    top:0;
-    right:0;
-    left:0;
-    bottom:0;
 }
 
-.fhm_row {
-    /!* position: absolute; *!/
-    height: 33.3%;
-    left:0;
-    right:0;
-    background-color:#FFFFFF;
-    clear:both;
-}
-.fhm_item {
-    height: 100%;
-    width:49.95%;
-    background-color: #FFFFFF;
-    border: 1px solid #FFFFFF;
-    float:left;
-    text-align: center;
-}*/
-html, body,
-.scroll /* because the <ion-content> content is placed inside a div.scroll */
-{
-    height: 100%;
-}
-
-.container {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/*.container > .cell-row {
-    flex: 1;
-    display: flex;
-}
-.cell-row > div {
-    flex: 1;
-    flex-grow: 1;
-    color: #fff;
-
-    /!* Flex for these containers (cells) *!/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}*/
-
-.container i[class^="ion-"] {
-    font-size: 90px;
+.row-home{
+    -webkit-box-flex: 0 !important;
+    -moz-box-flex: 0 !important;
+    -webkit-flex: 0 1 50% !important;
+    -ms-flex: 0 1 50% !important;
+    flex: 0 1 50% !important;
 }
 
 
-
-
-
-/* doesn't matter */
-/*.bar-header {
-    background-color: #241D54 !important;
-    border-bottom: 0 !important;
-}
-.bar-header h1 {
-    color: #fff !important;
-    font-size: 20px !important;
-}*/
-/*
-
-.cell-row-1 {
-    background-color: #000;
-}
-.cell-row-2 {
-    background-color: #ccc;
-}
-.cell-row-3 {
-    background-color: #eee;
+.col-home{
+    /*background-color:gray !important;*/
+    border:thin solid black;
+    text-align:center !important;
 }
 
-.cell-1 {
-    background-color: #C5DCFC;
-}
-.cell-2 {
-    background-color: #262B69;
-}
-.cell-3 {
-    background-color: #A0C5FA;
-}
-.cell-4 {
-    background-color: #B3D0FC;
-}
-.cell-5 {
-    background-color: #73A7F9;
-}
-.cell-6 {
-    background-color: #8CB9FA;
+.homeContainer i{
+
 }
 
-*/
+.my-icon:before,
+.my-icon{
+    font-size:60px !important;
+    display:block !important;
+}
+
+
