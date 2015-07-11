@@ -1,4 +1,12 @@
 {
   "name": "autoguru-mobile",
-  "app_id": ""
+  "app_id": "de8afd5f",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
