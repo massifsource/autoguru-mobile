@@ -81,7 +81,8 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers'])
             templateUrl: "templates/dtp/index.html"
           }
         }
-      }).state('app.dtp-komissar', {
+      })
+      .state('app.dtp-komissar', {
         url: "/dtp/komissar",
         views: {
           'menuContent': {
@@ -96,11 +97,60 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers'])
             templateUrl: "templates/auto-info/index.html"
           }
         }
-      }).state('app.auto-info-service', {
+      })
+      .state('app.auto-info-service', {
         url: "/auto-info/service",
         views: {
           'menuContent': {
             templateUrl: "templates/auto-info/service.html"
+          }
+        }
+      })
+      .state('app.profile', {
+        url: "/profile",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/profile.html"
+          }
+        }
+      })
+      .state('app.share', {
+        url: "/share",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/share.html"
+          }
+        }
+      })
+      .state('app.settings', {
+        url: "/settings",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/settings.html"
+          }
+        }
+      })
+      .state('app.feedback', {
+        url: "/feedback",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/feedback.html"
+          }
+        }
+      })
+      .state('app.contact-us', {
+        url: "/contact-us",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/contact-us.html"
+          }
+        }
+      })
+      .state('app.agreement', {
+        url: "/agreement",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/agreement.html"
           }
         }
       })
