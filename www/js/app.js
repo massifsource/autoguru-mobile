@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,7 +19,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
 })
-
+    .config(function($ionicConfigProvider) {
+      $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
+    }
+)
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -56,11 +59,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+  .state('app.road-help', {
+    url: "/road-help",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html"
+        templateUrl: "templates/road-help.html"
       }
     }
   });
