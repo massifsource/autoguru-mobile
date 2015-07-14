@@ -51,8 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: "/home",
       views: {
         'menuContent': {
-          templateUrl: "templates/home.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/home.html"
         }
       }
     })
@@ -61,8 +60,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/playlists/:playlistId",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/playlist.html"
       }
     }
   });
