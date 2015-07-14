@@ -53,4 +53,21 @@ angular.module('AutoGuru.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+    .controller('ContactController', ['$scope', '$http',  function($scope, $http) {
+
+      $scope.sendContact = function() {
+
+        var data = {
+          name: this.contact.name,
+          email: this.contact.email,
+          message: this.contact.message
+        };
+
+        console.log(data);
+
+        $http.post("http://192.168.1.189/app_dev.php/api/contact/", data);
+
+      }
+
+    }]);
