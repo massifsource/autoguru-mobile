@@ -39,9 +39,13 @@ body {
 
 .home-icon:before,
 .home-icon{
-    font-size:100px !important;
+    font-size:90px !important;
     display:flex !important;
     font-size-adjust: inherit;
+}
+
+.home-icon-text {
+    font-size: medium;
 }
 
 .center{
@@ -73,9 +77,5 @@ body {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-}
-
-.home-icon-text {
-    font-size: large;
 }
 
