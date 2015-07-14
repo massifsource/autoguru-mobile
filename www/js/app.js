@@ -59,14 +59,52 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers'])
       }
     })
 
-  .state('app.road-help', {
+  .state('app.road-help-main', {
     url: "/road-help",
     views: {
       'menuContent': {
-        templateUrl: "templates/road-help.html"
+        templateUrl: "templates/road-help/index.html"
       }
     }
-  });
+  }).state('app.road-help-flat-tire', {
+        url: "/road-help/flat-tire",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/road-help/flat-tire.html"
+          }
+        }
+      })
+      .state('app.dtp-main', {
+        url: "/dtp",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/dtp/index.html"
+          }
+        }
+      }).state('app.dtp-komissar', {
+        url: "/dtp/komissar",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/dtp/komissar.html"
+          }
+        }
+      })
+      .state('app.auto-info-main', {
+        url: "/auto-info",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/auto-info/index.html"
+          }
+        }
+      }).state('app.auto-info-service', {
+        url: "/auto-info/service",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/auto-info/service.html"
+          }
+        }
+      })
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });
