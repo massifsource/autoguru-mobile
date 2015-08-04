@@ -58,7 +58,22 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
         }
       }
     })
-
+      .state('app.taxi', {
+        url: "/taxi",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/taxi.html"
+          }
+        }
+      })
+      .state('app.maps', {
+        url: "/maps",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/maps.html"
+          }
+        }
+      })
   .state('app.road-help-main', {
     url: "/road-help",
     views: {
