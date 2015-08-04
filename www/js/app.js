@@ -70,7 +70,28 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
         url: "/maps",
         views: {
           'menuContent': {
-            templateUrl: "templates/maps.html"
+            templateUrl: "templates/maps.html",
+              controller: 'NearestGardenCtrl',
+              resolve: {
+                  currentLocation: function($q) {
+                      var q = $q.defer();
+                      navigator.geolocation.getCurrentPosition(function(pos) {
+                          console.log('Position=')
+                          console.log(pos);
+                          latLong =  { 'lat' : pos.coords.latitude, 'long' : pos.coords.longitude }
+                          q.resolve(latLong);
+
+                      }, function(error) {
+                          console.log('Got error!');
+                          console.log(error);
+                          latLong = null
+
+                          q.reject('Failed to Get Lat Long')
+
+                      });
+                      return q.promise;
+                  }
+              }
           }
         }
       })
