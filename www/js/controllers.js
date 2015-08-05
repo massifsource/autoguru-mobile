@@ -85,4 +85,76 @@ angular.module('AutoGuru.controllers', [])
         });
       }
 
+    })
+
+.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+
+  function initialize() {
+      console.log('Map.Ctrl.initialize()')
+    var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+
+    var mapOptions = {
+      center: myLatlng,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+
+      var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map)
+
+    //Marker + infowindow + angularjs compiled ng-click
+    var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+    var compiled = $compile(contentString)($scope);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: compiled[0]
     });
+
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Uluru (Ayers Rock)'
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
+
+    $scope.map = map;
+  }
+
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+        initialize();
+  $scope.centerOnMe = function() {
+      console.log('centerOnMe')
+
+    if(!$scope.map) {
+      return;
+    }
+
+    $scope.loading = $ionicLoading.show({
+      content: 'Getting current location...',
+      showBackdrop: false
+    });
+    console.log('getCurrentPosition')
+    navigator.geolocation.getCurrentPosition(function(pos) {
+        console.log('test1')
+        console.log('position=')
+        console.log(pos.coords.latitude)
+      $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        console.log('test2')
+      $ionicLoading.hide();
+        console.log('test3')
+    }, function(error) {
+      alert('Unable to get location: ' + error.message);
+    });
+  };
+
+  $scope.clickTest = function() {
+    alert('Example of infowindow with ng-click')
+  };
+
+});

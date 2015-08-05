@@ -71,7 +71,10 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
         views: {
           'menuContent': {
             templateUrl: "templates/maps.html",
-              controller: 'NearestGardenCtrl',
+              controller: 'MapCtrl',
+              resolve : {
+
+              }/*,
               resolve: {
                   currentLocation: function($q) {
                       var q = $q.defer();
@@ -91,7 +94,7 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
                       });
                       return q.promise;
                   }
-              }
+              }*/
           }
         }
       })
