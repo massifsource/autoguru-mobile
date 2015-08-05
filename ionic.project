@@ -1,5 +1,5 @@
 {
-  "name": "autoguru-mobile",
+  "name": "autoguru",
   "app_id": "de8afd5f",
   "gulpStartupTasks": [
     "sass",

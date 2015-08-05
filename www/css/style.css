@@ -1,1 +1,90 @@
-/* Empty. Add your own CSS if you like */
+body {
+    cursor: auto;
+}
+.scroll{
+    height: 100% !important;
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    -webkit-box-direction: normal !important;
+    -moz-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    -moz-box-orient: vertical !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+
+}
+
+.row-home{
+    -webkit-box-flex: 0 !important;
+    -moz-box-flex: 0 !important;
+    -webkit-flex: 0 1 50% !important;
+    -ms-flex: 0 1 50% !important;
+    flex: 0 1 50% !important;
+}
+
+
+.col-home{
+    /*background-color:#28a54c !important;*/
+    /*border:thin solid black;*/
+    text-align:center !important;
+}
+
+.homeContainer p{
+    font-size: large;
+}
+
+.home-icon:before,
+.home-icon{
+    font-size:90px !important;
+    display:flex !important;
+    font-size-adjust: inherit;
+}
+
+.home-icon-text {
+    font-size: medium;
+}
+
+.center{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll {
+    height: 100%;
+}
+

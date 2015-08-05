@@ -1,0 +1,49 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-dark" >
+      <ion-nav-back-button>
+        <!--<i class="ion-arrow-left-c"></i>-->
+      </ion-nav-back-button>
+      <ion-nav-buttons side="right" >
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="right">
+    <ion-header-bar class="bar-dark">
+      <h1 class="title">Меню</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+
+        <ion-item menu-close href="#/app/home">
+          Главное меню
+        </ion-item>
+        <ion-item menu-close ng-click="login()">
+          Войти
+        </ion-item>
+        <ion-item menu-close href="#/app/profile">
+          Личный Кабинет
+        </ion-item>
+        <ion-item menu-close href="#/app/share">
+          Поделиться с друзьями
+        </ion-item>
+        <ion-item menu-close href="#/app/settings">
+          Настройки
+        </ion-item>
+        <ion-item menu-close href="#/app/feedback">
+          Отзывы и предложения
+        </ion-item>
+        <ion-item menu-close href="#/app/contact-us">
+          Связаться с нами
+        </ion-item>
+        <ion-item menu-close href="#/app/agreement">
+          Пользовательское соглашение
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
