@@ -46,6 +46,14 @@ body {
 
 }
 
+.call-icon{
+    font-size:90px !important;
+    display:flex !important;
+    font-size-adjust: inherit;
+    color: darkgreen;
+
+}
+
 .home-icon-text {
     font-size: medium;
     color: white;
