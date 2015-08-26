@@ -31,6 +31,7 @@ body {
     /*background-color:#28a54c !important;*/
     /*border:thin solid black;*/
     text-align:center !important;
+    text-decoration: none;
 }
 
 .homeContainer p{
