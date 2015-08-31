@@ -91,7 +91,7 @@ angular.module('AutoGuru.controllers', [])
 
   function initialize() {
       console.log('Map.Ctrl.initialize()')
-    var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+    var myLatlng = new google.maps.LatLng(52.2666667, 104.3333333);
 
     var mapOptions = {
       center: myLatlng,
