@@ -32,25 +32,7 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
-
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
-
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.home', {
+  .state('app.home', {
       url: "/home",
       views: {
         'menuContent': {
@@ -58,6 +40,14 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
         }
       }
     })
+    .state('app.city', {
+          url: "/city",
+          views: {
+              'menuContent': {
+                  templateUrl: "templates/city.html"
+              }
+          }
+      })
       .state('app.taxi', {
         url: "/taxi",
         views: {
@@ -74,27 +64,7 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
               controller: 'MapCtrl',
               resolve : {
 
-              }/*,
-              resolve: {
-                  currentLocation: function($q) {
-                      var q = $q.defer();
-                      navigator.geolocation.getCurrentPosition(function(pos) {
-                          console.log('Position=')
-                          console.log(pos);
-                          latLong =  { 'lat' : pos.coords.latitude, 'long' : pos.coords.longitude }
-                          q.resolve(latLong);
-
-                      }, function(error) {
-                          console.log('Got error!');
-                          console.log(error);
-                          latLong = null
-
-                          q.reject('Failed to Get Lat Long')
-
-                      });
-                      return q.promise;
-                  }
-              }*/
+              }
           }
         }
       })
@@ -129,43 +99,11 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
           }
         }
       })
-      .state('app.auto-info-main', {
-        url: "/auto-info",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/auto-info/index.html"
-          }
-        }
-      })
-      .state('app.auto-info-service', {
-        url: "/auto-info/service",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/auto-info/service.html"
-          }
-        }
-      })
-      .state('app.profile', {
-        url: "/profile",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/profile.html"
-          }
-        }
-      })
-      .state('app.share', {
+     .state('app.share', {
         url: "/share",
         views: {
           'menuContent': {
             templateUrl: "templates/share.html"
-          }
-        }
-      })
-      .state('app.settings', {
-        url: "/settings",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/settings.html"
           }
         }
       })
@@ -174,14 +112,6 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
         views: {
           'menuContent': {
             templateUrl: "templates/feedback.html"
-          }
-        }
-      })
-      .state('app.contact-us', {
-        url: "/contact-us",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/contact-us.html"
           }
         }
       })
