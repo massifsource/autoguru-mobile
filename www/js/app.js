@@ -32,42 +32,47 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
-  .state('app.home', {
-      url: "/home",
+  .state('app.main-menu', {
+      url: "/main-menu",
       views: {
         'menuContent': {
-          templateUrl: "templates/home.html"
+          templateUrl: "templates/main-menu.html"
         }
       }
     })
     .state('app.city', {
-          url: "/city",
-          views: {
-              'menuContent': {
-                  templateUrl: "templates/city.html"
-              }
-          }
-      })
-      .state('app.taxi', {
-        url: "/taxi",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/taxi.html"
-          }
+      url: "/city",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/city.html"
         }
-      })
-      .state('app.maps', {
-        url: "/maps",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/maps.html",
-              controller: 'MapCtrl',
-              resolve : {
-
-              }
-          }
+      }
+    })
+    .state('app.district', {
+      url: "/district",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/district.html"
         }
-      })
+      }
+    })
+    .state('app.taxi', {
+      url: "/taxi",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/taxi.html"
+        }
+      }
+    })
+    .state('app.maps', {
+      url: "/maps",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/maps.html",
+          controller: 'MapCtrl'
+        }
+      }
+    })
   .state('app.road-help-main', {
     url: "/road-help",
     views: {
@@ -75,55 +80,55 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
         templateUrl: "templates/road-help/index.html"
       }
     }
-  }).state('app.road-help-flat-tire', {
-        url: "/road-help/flat-tire",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/road-help/flat-tire.html"
-          }
-        }
-      })
-      .state('app.dtp-main', {
-        url: "/dtp",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/dtp/index.html"
-          }
-        }
-      })
-      .state('app.dtp-komissar', {
-        url: "/dtp/komissar",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/dtp/komissar.html"
-          }
-        }
-      })
-     .state('app.share', {
-        url: "/share",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/share.html"
-          }
-        }
-      })
-      .state('app.feedback', {
-        url: "/feedback",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/feedback.html"
-          }
-        }
-      })
-      .state('app.agreement', {
-        url: "/agreement",
-        views: {
-          'menuContent': {
-            templateUrl: "templates/agreement.html"
-          }
-        }
-      })
-  ;
+  })
+  .state('app.road-help-flat-tire', {
+    url: "/road-help/flat-tire",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/road-help/flat-tire.html"
+      }
+    }
+  })
+  .state('app.dtp-main', {
+    url: "/dtp",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/dtp/index.html"
+      }
+    }
+  })
+  .state('app.dtp-komissar', {
+    url: "/dtp/komissar",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/dtp/komissar.html"
+      }
+    }
+  })
+ .state('app.share', {
+    url: "/share",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/share.html"
+      }
+    }
+  })
+  .state('app.feedback', {
+    url: "/feedback",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/feedback.html"
+      }
+    }
+  })
+  .state('app.agreement', {
+    url: "/agreement",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/agreement.html"
+      }
+    }
+  });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/city');
 });

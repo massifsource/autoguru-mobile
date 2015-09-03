@@ -1,61 +1,72 @@
 angular.module('AutoGuru.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $http) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+  $scope.appData = {
+    title: 'AutoGuru',
+    selectedCity: {},
+    selectedDistrict: {},
+    cities: [],
+    districts: [],
 
-  $scope.title = "AutoGuru";
+    retrieveCities: function() {
+      $scope.appData.cities = {"content":[{"id":1,"name":"Иркутск"},{"id":2,"name":"Ангарск"},{"id":3,"name":"Шелехов"}],"totalPages":1,"totalElements":3,"last":true,"first":true,"numberOfElements":3,"sort":null,"size":20,"number":0};
+
+      // Commenting out until we get something working with CORS.
+      // $http({
+      //   url: '//autoguru-dap.elasticbeanstalk.com/cities',
+      //   dataType: 'json',
+      //   method: 'GET',
+      //   headers: {
+      //       "Content-Type": "application/json"
+      //   },
+      //   params: ''
+      // }).success(function(data) {
+      //   $scope.appData.cities = data;
+      //   console.log(data);
+      // }).error(function(data) {
+      //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
+      // });
+    },
+    retrieveDistricts: function() {
+      $scope.appData.districts = {"content":[{"id":1,"name":"Новоленино","cityId":1},{"id":2,"name":"Правый Берег","cityId":1},{"id":3,"name":"Левый Берег","cityId":1},{"id":4,"name":"Ангарск","cityId":2},{"id":5,"name":"Шелехов","cityId":3}],"totalPages":1,"totalElements":5,"last":true,"first":true,"numberOfElements":5,"sort":null,"size":20,"number":0};
+      // $http({
+      //   url: '//autoguru-dap.elasticbeanstalk.com/cities',
+      //   method: 'GET'
+      // }).success(function(data) {
+      //   $scope.appData.districts = data;
+      //   console.log(data);
+      // }).error(function(data) {
+      //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
+      // });
+    },
+    setCity: function(city) {
+      $scope.appData.selectedCity = city;
+      $scope.appData.selectedCity.districts = angular.copy($scope.appData.districts.content);
+
+      console.log('before');
+      for (var i = 0; i < $scope.appData.selectedCity.districts.length; i++) {
+        if ($scope.appData.selectedCity.districts[i].cityId !== $scope.appData.selectedCity.id) {
+          $scope.appData.selectedCity.districts.splice(i, 1);
+          i--;
+        }
+      }
+      console.log('after');
+      console.log($scope.appData.selectedCity.districts);
+
+      $scope.appData.title = city.name;
+    },
+    setDistrict: function(district) {
+      console.log('set district called');
+      $scope.appData.selectedDistrict = district;
+      $scope.appData.title = $scope.appData.selectedCity.name + ', ' + district.name;
+    }
+  }
+
+  $scope.appData.retrieveCities();
+  $scope.appData.retrieveDistricts();
 
 })
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-    .controller('ContactController', ['$scope', '$http',  function($scope, $http) {
-
-      $scope.sendContact = function() {
-
-        var data = {
-          name: this.contact.name,
-          email: this.contact.email,
-          message: this.contact.message
-        };
-
-        console.log(data);
-
-        $http.post("http://192.168.1.189/app_dev.php/api/contact/", data);
-
-      }
-
-    }])
-    .controller("ExampleController", function($scope, $cordovaSocialSharing) {
-
-      $scope.shareAnywhere = function() {
-        $cordovaSocialSharing.share("This is your message", "This is your subject", "www/imagefile.png", "http://blog.nraboy.com");
-      }
-
-      $scope.shareViaTwitter = function(message, image, link) {
-        $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-          $cordovaSocialSharing.shareViaTwitter(message, image, link);
-        }, function(error) {
-          alert("Cannot share on Twitter");
-        });
-      }
-
-    })
-
 .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
 
   function initialize() {
@@ -108,7 +119,7 @@ angular.module('AutoGuru.controllers', [])
       content: 'Getting current location...',
       showBackdrop: false
     });
-    console.log('getCurrentPosition')
+
     navigator.geolocation.getCurrentPosition(function(pos) {
         console.log('test1')
         console.log('position=')
