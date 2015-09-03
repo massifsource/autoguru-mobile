@@ -73,35 +73,19 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
         }
       }
     })
-  .state('app.road-help-main', {
+  .state('app.road-help', {
     url: "/road-help",
     views: {
       'menuContent': {
-        templateUrl: "templates/road-help/index.html"
+        templateUrl: "templates/road-help.html"
       }
     }
   })
-  .state('app.road-help-flat-tire', {
-    url: "/road-help/flat-tire",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/road-help/flat-tire.html"
-      }
-    }
-  })
-  .state('app.dtp-main', {
+  .state('app.dtp', {
     url: "/dtp",
     views: {
       'menuContent': {
-        templateUrl: "templates/dtp/index.html"
-      }
-    }
-  })
-  .state('app.dtp-komissar', {
-    url: "/dtp/komissar",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/dtp/komissar.html"
+        templateUrl: "templates/dtp.html"
       }
     }
   })
