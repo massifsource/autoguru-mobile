@@ -8,6 +8,7 @@ angular.module('AutoGuru.controllers', [])
     selectedDistrict: {},
     cities: [],
     districts: [],
+    cityHref: '#/app/district',
 
     retrieveCities: function() {
       $scope.appData.cities = {"content":[{"id":1,"name":"Иркутск"},{"id":2,"name":"Ангарск"},{"id":3,"name":"Шелехов"}],"totalPages":1,"totalElements":3,"last":true,"first":true,"numberOfElements":3,"sort":null,"size":20,"number":0};
@@ -23,7 +24,6 @@ angular.module('AutoGuru.controllers', [])
       //   params: ''
       // }).success(function(data) {
       //   $scope.appData.cities = data;
-      //   console.log(data);
       // }).error(function(data) {
       //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
       // });
@@ -35,7 +35,6 @@ angular.module('AutoGuru.controllers', [])
       //   method: 'GET'
       // }).success(function(data) {
       //   $scope.appData.districts = data;
-      //   console.log(data);
       // }).error(function(data) {
       //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
       // });
@@ -44,20 +43,17 @@ angular.module('AutoGuru.controllers', [])
       $scope.appData.selectedCity = city;
       $scope.appData.selectedCity.districts = angular.copy($scope.appData.districts.content);
 
-      console.log('before');
       for (var i = 0; i < $scope.appData.selectedCity.districts.length; i++) {
         if ($scope.appData.selectedCity.districts[i].cityId !== $scope.appData.selectedCity.id) {
           $scope.appData.selectedCity.districts.splice(i, 1);
           i--;
         }
       }
-      console.log('after');
-      console.log($scope.appData.selectedCity.districts);
 
+      $scope.appData.cityHref = ($scope.appData.selectedCity.districts.length <= 1) ? '#/app/main-menu' : '#/app/district';
       $scope.appData.title = city.name;
     },
     setDistrict: function(district) {
-      console.log('set district called');
       $scope.appData.selectedDistrict = district;
       $scope.appData.title = $scope.appData.selectedCity.name + ', ' + district.name;
     }
@@ -70,7 +66,6 @@ angular.module('AutoGuru.controllers', [])
 .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
 
   function initialize() {
-      console.log('Map.Ctrl.initialize()')
     var myLatlng = new google.maps.LatLng(52.2666667, 104.3333333);
 
     var mapOptions = {
@@ -109,7 +104,6 @@ angular.module('AutoGuru.controllers', [])
   google.maps.event.addDomListener(window, 'load', initialize);
         initialize();
   $scope.centerOnMe = function() {
-      console.log('centerOnMe')
 
     if(!$scope.map) {
       return;
@@ -121,13 +115,8 @@ angular.module('AutoGuru.controllers', [])
     });
 
     navigator.geolocation.getCurrentPosition(function(pos) {
-        console.log('test1')
-        console.log('position=')
-        console.log(pos.coords.latitude)
       $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        console.log('test2')
       $ionicLoading.hide();
-        console.log('test3')
     }, function(error) {
       alert('Unable to get location: ' + error.message);
     });
