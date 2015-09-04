@@ -41,7 +41,7 @@ body {
 .home-icon:before,
 .home-icon{
     font-size:90px !important;
-    display:flex !important;
+    /*display:flex !important;*/
     font-size-adjust: inherit;
     color: white;
 
@@ -99,4 +99,3 @@ body {
 .scroll {
     height: 100%;
 }
-
