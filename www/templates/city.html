@@ -1,7 +1,7 @@
 <ion-view view-title="{{appData.title}}">
   <ion-content>
     <ion-list>
-      <ion-item href="#/app/district" ng-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
+      <ion-item href="{{appData.cityHref}}" ng-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
         {{city.name}}
       </ion-item>
     </ion-list>

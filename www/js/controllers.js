@@ -8,6 +8,7 @@ angular.module('AutoGuru.controllers', [])
     selectedDistrict: {},
     cities: [],
     districts: [],
+    cityHref: '#/app/district',
 
     retrieveCities: function() {
       $scope.appData.cities = {"content":[{"id":1,"name":"Иркутск"},{"id":2,"name":"Ангарск"},{"id":3,"name":"Шелехов"}],"totalPages":1,"totalElements":3,"last":true,"first":true,"numberOfElements":3,"sort":null,"size":20,"number":0};
@@ -44,20 +45,17 @@ angular.module('AutoGuru.controllers', [])
       $scope.appData.selectedCity = city;
       $scope.appData.selectedCity.districts = angular.copy($scope.appData.districts.content);
 
-      console.log('before');
       for (var i = 0; i < $scope.appData.selectedCity.districts.length; i++) {
         if ($scope.appData.selectedCity.districts[i].cityId !== $scope.appData.selectedCity.id) {
           $scope.appData.selectedCity.districts.splice(i, 1);
           i--;
         }
       }
-      console.log('after');
-      console.log($scope.appData.selectedCity.districts);
 
+      $scope.appData.cityHref = ($scope.appData.selectedCity.districts.length <= 1) ? '#/app/main-menu' : '#/app/district';
       $scope.appData.title = city.name;
     },
     setDistrict: function(district) {
-      console.log('set district called');
       $scope.appData.selectedDistrict = district;
       $scope.appData.title = $scope.appData.selectedCity.name + ', ' + district.name;
     }
