@@ -1,4 +1,7 @@
-<ion-view view-title="{{appData.title}}">
+<ion-view>
+  <ion-nav-title>
+    {{appData.title}}
+  </ion-nav-title>
   <ion-content>
     <ion-list>
       <ion-item href="#/app/main-menu" ng-repeat='district in appData.selectedCity.districts' ng-click="appData.setDistrict(district)">

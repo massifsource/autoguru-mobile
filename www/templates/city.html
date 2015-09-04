@@ -1,4 +1,7 @@
-<ion-view view-title="{{appData.title}}">
+<ion-view>
+  <ion-nav-title>
+    {{appData.title}}
+  </ion-nav-title>
   <ion-content>
     <ion-list>
       <ion-item href="{{appData.cityHref}}" ng-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
