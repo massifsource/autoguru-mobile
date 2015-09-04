@@ -24,7 +24,6 @@ angular.module('AutoGuru.controllers', [])
       //   params: ''
       // }).success(function(data) {
       //   $scope.appData.cities = data;
-      //   console.log(data);
       // }).error(function(data) {
       //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
       // });
@@ -36,7 +35,6 @@ angular.module('AutoGuru.controllers', [])
       //   method: 'GET'
       // }).success(function(data) {
       //   $scope.appData.districts = data;
-      //   console.log(data);
       // }).error(function(data) {
       //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
       // });
@@ -68,7 +66,6 @@ angular.module('AutoGuru.controllers', [])
 .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
 
   function initialize() {
-      console.log('Map.Ctrl.initialize()')
     var myLatlng = new google.maps.LatLng(52.2666667, 104.3333333);
 
     var mapOptions = {
@@ -107,7 +104,6 @@ angular.module('AutoGuru.controllers', [])
   google.maps.event.addDomListener(window, 'load', initialize);
         initialize();
   $scope.centerOnMe = function() {
-      console.log('centerOnMe')
 
     if(!$scope.map) {
       return;
@@ -119,13 +115,8 @@ angular.module('AutoGuru.controllers', [])
     });
 
     navigator.geolocation.getCurrentPosition(function(pos) {
-        console.log('test1')
-        console.log('position=')
-        console.log(pos.coords.latitude)
       $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        console.log('test2')
       $ionicLoading.hide();
-        console.log('test3')
     }, function(error) {
       alert('Unable to get location: ' + error.message);
     });
