@@ -2,11 +2,13 @@
   <ion-nav-title>
     {{appData.title}}
   </ion-nav-title>
-  <ion-content>
-    <ion-list>
-      <ion-item href="{{appData.cityHref}}" ng-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
-        {{city.name}}
-      </ion-item>
-    </ion-list>
-  </ion-content>
+  <div ng-if="appData.cities.content.length > 0">
+    <ion-content>
+      <ion-list>
+        <ion-item href="{{appData.cityHref}}" ng-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
+          {{city.name}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </div>
 </ion-view>

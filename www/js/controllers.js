@@ -6,8 +6,8 @@ angular.module('AutoGuru.controllers', [])
     title: 'AutoGuru',
     selectedCity: {},
     selectedDistrict: {},
-    cities: {},
-    districts: {},
+    cities: {content: []},
+    districts: {content: []},
     cityHref: '#/app/district',
 
     retrieveCities: function() {
@@ -25,7 +25,7 @@ angular.module('AutoGuru.controllers', [])
       }).error(function(data) {
         $scope.appData.cities = $localStorage.getObject('cityData');
 
-        if (!$scope.appData.cities || $scope.appData.cities.length === 0) {
+        if (!$scope.appData.cities || Object.getOwnPropertyNames($scope.appData.cities).length === 0) {
           $scope.appData.cities = {"content":[{"id":1,"name":"Иркутск"},{"id":2,"name":"Ангарск"},{"id":3,"name":"Шелехов"}],"totalPages":1,"totalElements":3,"last":true,"first":true,"numberOfElements":3,"sort":null,"size":20,"number":0};
           $localStorage.setObject('cityData', $scope.appData.cities);
         }
