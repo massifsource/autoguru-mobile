@@ -6,7 +6,10 @@
     <ion-content>
       <ion-list>
         <ion-item href="{{appData.cityHref}}" ng-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
-          {{city.name}}
+          <span>
+            {{city.name}}
+          </span>
+          <span ng-class="{'ion-checkmark-round': appData.selectedCity.id === city.id}"></span>
         </ion-item>
       </ion-list>
     </ion-content>
