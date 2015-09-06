@@ -1,43 +1,51 @@
 angular.module('AutoGuru.controllers', [])
 
-.controller('AppCtrl', function($scope, $http) {
+.controller('AppCtrl', function($scope, $http, $localStorage) {
 
   $scope.appData = {
     title: 'AutoGuru',
     selectedCity: {},
     selectedDistrict: {},
-    cities: [],
-    districts: [],
+    cities: {},
+    districts: {},
     cityHref: '#/app/district',
 
     retrieveCities: function() {
-      $scope.appData.cities = {"content":[{"id":1,"name":"Иркутск"},{"id":2,"name":"Ангарск"},{"id":3,"name":"Шелехов"}],"totalPages":1,"totalElements":3,"last":true,"first":true,"numberOfElements":3,"sort":null,"size":20,"number":0};
+      $http({
+        url: '//autoguru-dap.elasticbeanstalk.com/cities',
+        dataType: 'json',
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        params: ''
+      }).success(function(data) {
+        $scope.appData.cities = data;
+        $localStorage.setObject('cityData', $scope.appData.cities);
+      }).error(function(data) {
+        $scope.appData.cities = $localStorage.getObject('cityData');
 
-      // Commenting out until we get something working with CORS.
-      // $http({
-      //   url: '//autoguru-dap.elasticbeanstalk.com/cities',
-      //   dataType: 'json',
-      //   method: 'GET',
-      //   headers: {
-      //       "Content-Type": "application/json"
-      //   },
-      //   params: ''
-      // }).success(function(data) {
-      //   $scope.appData.cities = data;
-      // }).error(function(data) {
-      //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
-      // });
+        if (!$scope.appData.cities || $scope.appData.cities.length === 0) {
+          $scope.appData.cities = {"content":[{"id":1,"name":"Иркутск"},{"id":2,"name":"Ангарск"},{"id":3,"name":"Шелехов"}],"totalPages":1,"totalElements":3,"last":true,"first":true,"numberOfElements":3,"sort":null,"size":20,"number":0};
+          $localStorage.setObject('cityData', $scope.appData.cities);
+        }
+      });
     },
     retrieveDistricts: function() {
-      $scope.appData.districts = {"content":[{"id":1,"name":"Новоленино","cityId":1},{"id":2,"name":"Правый Берег","cityId":1},{"id":3,"name":"Левый Берег","cityId":1},{"id":4,"name":"Ангарск","cityId":2},{"id":5,"name":"Шелехов","cityId":3}],"totalPages":1,"totalElements":5,"last":true,"first":true,"numberOfElements":5,"sort":null,"size":20,"number":0};
-      // $http({
-      //   url: '//autoguru-dap.elasticbeanstalk.com/cities',
-      //   method: 'GET'
-      // }).success(function(data) {
-      //   $scope.appData.districts = data;
-      // }).error(function(data) {
-      //   alert("Couldn't retrieve list of cities, please verify network connection and try again.");
-      // });
+      $http({
+        url: '//autoguru-dap.elasticbeanstalk.com/districts',
+        method: 'GET'
+      }).success(function(data) {
+        $scope.appData.districts = data;
+        $localStorage.setObject('districtData', $scope.appData.districts);
+      }).error(function(data) {
+        $scope.appData.districts = $localStorage.getObject('districtData');
+
+        if (!$scope.appData.districts || Object.getOwnPropertyNames($scope.appData.districts).length === 0) {
+          $scope.appData.districts = {"content":[{"id":1,"name":"Новоленино","cityId":1},{"id":2,"name":"Правый Берег","cityId":1},{"id":3,"name":"Левый Берег","cityId":1},{"id":4,"name":"Ангарск","cityId":2},{"id":5,"name":"Шелехов","cityId":3}],"totalPages":1,"totalElements":5,"last":true,"first":true,"numberOfElements":5,"sort":null,"size":20,"number":0};
+          $localStorage.setObject('districtData', $scope.appData.districts);
+        }
+      });
     },
     setCity: function(city) {
       $scope.appData.selectedCity = city;

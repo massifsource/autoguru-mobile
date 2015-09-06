@@ -5,7 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
-
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -19,10 +18,9 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
     }
   });
 })
-    .config(function($ionicConfigProvider) {
-      $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
-    }
-)
+.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
+})
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -115,4 +113,20 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/city');
-});
+})
+.factory('$localStorage', ['$window', function($window) {
+  return {
+    set: function(key, value) {
+      $window.localStorage[key] = value;
+    },
+    get: function(key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
+    },
+    setObject: function(key, value) {
+      $window.localStorage[key] = JSON.stringify(value);
+    },
+    getObject: function(key) {
+      return JSON.parse($window.localStorage[key] || '{}');
+    }
+  }
+}]);
