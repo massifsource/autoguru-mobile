@@ -13,12 +13,12 @@
           <span class="input-label">Электронный адрес</span>
           <input type="text" ng-model="contact.email" placeholder="alex@gmail.com">
         </label>
-        <label class="item item-input item-stacked-label">
+        <label class="item item-input item-stacked-label" style="height: 50vh">
           <span class="input-label">Сообщение</span>
-          <input type="text" ng-model="contact.message" placeholder="Текст сообщения">
+          <textarea full-size ng-model="contact.message" placeholder="Текст сообщения"></textarea>
         </label>
         <padding>
-          <button class="button button-calm button-block">
+          <button class="button button-block button-dark">
             Отправить
           </button>
         </padding>
