@@ -100,7 +100,8 @@ angular.module('AutoGuru.controllers', [])
       console.log
       var marker = new google.maps.Marker({
         position: myLatlng,
-        map: map
+        map: map,
+        icon: 'img/location.png'
       });
 
       /*google.maps.event.addListener(marker, 'click', function() {
@@ -118,11 +119,7 @@ angular.module('AutoGuru.controllers', [])
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
-  var geo_options = {
-  enableHighAccuracy: true,
-  maximumAge        : 30000,
-  timeout           : 27000
-};
+
   //initialize();
   function updateLoc(pos) {
     if(!$scope.map) {
@@ -131,18 +128,18 @@ angular.module('AutoGuru.controllers', [])
     }
     $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     $scope.map.setCenter($scope.myLatlng);
-    console.log("loading location");
+    console.log("updateLoc");
     $scope.marker.setMap(null);
-    $scope.marker = new google.maps.Marker({
-      position: $scope.myLatlng,
-      map: $scope.map
-    });
+    $scope.marker.setMap($scope.map);
+    $scope.marker.setPosition($scope.myLatlng);
+  }
+  function updateLocError(error) {
+      //alert('Unable to get location: ' + error.message);
   }
   $scope.centerOnMe = function() {
     if(!$scope.map) {
       return;
     }
-
     $scope.loading = $ionicLoading.show({
       content: 'Getting current location...',
       showBackdrop: false
@@ -153,14 +150,18 @@ angular.module('AutoGuru.controllers', [])
       $scope.map.setCenter($scope.myLatlng);
       console.log("loading location");
       $scope.marker.setMap(null);
-      $scope.marker = new google.maps.Marker({
-        position: $scope.myLatlng,
-        map: $scope.map
-      });
+      $scope.marker.setMap($scope.map);
+      $scope.marker.setPosition($scope.myLatlng);
       $ionicLoading.hide();
     }, function(error) {
       alert('Unable to get location: ' + error.message);
     });
   };
-  var wpid = navigator.geolocation.watchPosition(updateLoc, updateLoc, geo_options);
+
+  var geo_options = {
+    enableHighAccuracy: true,
+    maximumAge        : 30000,
+    timeout           : 27000
+  };
+  var wpid = navigator.geolocation.watchPosition(updateLoc, updateLocError, geo_options);
 });
