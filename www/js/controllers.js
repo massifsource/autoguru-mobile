@@ -101,7 +101,7 @@ angular.module('AutoGuru.controllers', [])
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        icon: 'img/location.png'
+        icon: 'img/location-22x22.png'
       });
 
       /*google.maps.event.addListener(marker, 'click', function() {
@@ -117,9 +117,13 @@ angular.module('AutoGuru.controllers', [])
       alert('Unable to get location: ' + error.message);
     });
   }
-
+  var isMapFrozen = false;
   google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(map, 'click', freezeMap)
 
+  function freezeMap() {
+    isMapFrozen = true;
+  }
   //initialize();
   function updateLoc(pos) {
     if(!$scope.map) {
@@ -127,7 +131,11 @@ angular.module('AutoGuru.controllers', [])
       return;
     }
     $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    $scope.map.setCenter($scope.myLatlng);
+    if (!isMapFrozen) {
+      console.log("Center map");
+      $scope.map.setCenter($scope.myLatlng);
+    }
+
     console.log("updateLoc");
     $scope.marker.setMap(null);
     $scope.marker.setMap($scope.map);
@@ -140,6 +148,7 @@ angular.module('AutoGuru.controllers', [])
     if(!$scope.map) {
       return;
     }
+    isMapFrozen = false;
     $scope.loading = $ionicLoading.show({
       content: 'Getting current location...',
       showBackdrop: false
