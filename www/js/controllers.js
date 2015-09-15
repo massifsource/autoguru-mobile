@@ -87,8 +87,8 @@ angular.module('AutoGuru.controllers', [])
       var map = new google.maps.Map(document.getElementById("map"),
           mapOptions);
 
-        var trafficLayer = new google.maps.TrafficLayer();
-        trafficLayer.setMap(map)
+      var trafficLayer = new google.maps.TrafficLayer();
+      trafficLayer.setMap(map)
 
       //Marker + infowindow + angularjs compiled ng-click
       /*var contentString = "<div><a ng-click='clickTest()'>Current Location</a></div>";
@@ -144,6 +144,7 @@ angular.module('AutoGuru.controllers', [])
   function updateLocError(error) {
       //alert('Unable to get location: ' + error.message);
   }
+  
   $scope.centerOnMe = function() {
     if(!$scope.map) {
       return;
