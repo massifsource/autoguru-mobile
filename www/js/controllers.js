@@ -74,64 +74,94 @@ angular.module('AutoGuru.controllers', [])
 .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
 
   function initialize() {
-    var myLatlng = new google.maps.LatLng(52.2666667, 104.3333333);
+    console.log("intialize");
+    var pos;
+    var myLatlng;
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      var mapOptions = {
+        center: myLatlng,
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map"),
+          mapOptions);
 
-    var mapOptions = {
-      center: myLatlng,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map"),
-        mapOptions);
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map)
 
-      var trafficLayer = new google.maps.TrafficLayer();
-      trafficLayer.setMap(map)
+      //Marker + infowindow + angularjs compiled ng-click
+      /*var contentString = "<div><a ng-click='clickTest()'>Current Location</a></div>";
+      var compiled = $compile(contentString)($scope);
 
-    //Marker + infowindow + angularjs compiled ng-click
-    var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-    var compiled = $compile(contentString)($scope);
+      var infowindow = new google.maps.InfoWindow({
+        content: compiled[0]
+      });*/
+      console.log
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        icon: 'img/location.png'
+      });
 
-    var infowindow = new google.maps.InfoWindow({
-      content: compiled[0]
+      /*google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });*/
+      $scope.map = map;
+      $scope.marker = marker;
+      $scope.myLatlng = myLatlng;
+      //$scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      //console.log("loading location");
+      $ionicLoading.hide();
+    }, function(error) {
+      alert('Unable to get location: ' + error.message);
     });
-
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Uluru (Ayers Rock)'
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.open(map,marker);
-    });
-
-    $scope.map = map;
   }
 
-
   google.maps.event.addDomListener(window, 'load', initialize);
-        initialize();
-  $scope.centerOnMe = function() {
 
+  //initialize();
+  function updateLoc(pos) {
+    if(!$scope.map) {
+      initialize();
+      return;
+    }
+    $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    $scope.map.setCenter($scope.myLatlng);
+    console.log("updateLoc");
+    $scope.marker.setMap(null);
+    $scope.marker.setMap($scope.map);
+    $scope.marker.setPosition($scope.myLatlng);
+  }
+  function updateLocError(error) {
+      //alert('Unable to get location: ' + error.message);
+  }
+  $scope.centerOnMe = function() {
     if(!$scope.map) {
       return;
     }
-
     $scope.loading = $ionicLoading.show({
       content: 'Getting current location...',
       showBackdrop: false
     });
 
     navigator.geolocation.getCurrentPosition(function(pos) {
-      $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      $scope.map.setCenter($scope.myLatlng);
+      console.log("loading location");
+      $scope.marker.setMap(null);
+      $scope.marker.setMap($scope.map);
+      $scope.marker.setPosition($scope.myLatlng);
       $ionicLoading.hide();
     }, function(error) {
       alert('Unable to get location: ' + error.message);
     });
   };
 
-  $scope.clickTest = function() {
-    alert('Example of infowindow with ng-click')
+  var geo_options = {
+    enableHighAccuracy: true,
+    maximumAge        : 30000,
+    timeout           : 27000
   };
-
+  var wpid = navigator.geolocation.watchPosition(updateLoc, updateLocError, geo_options);
 });
