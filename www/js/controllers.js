@@ -101,7 +101,7 @@ angular.module('AutoGuru.controllers', [])
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        icon: 'img/location-22x22.png'
+        icon: 'img/location-16x16.png'
       });
 
       /*google.maps.event.addListener(marker, 'click', function() {
