@@ -97,7 +97,6 @@ angular.module('AutoGuru.controllers', [])
       var infowindow = new google.maps.InfoWindow({
         content: compiled[0]
       });*/
-      console.log
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
@@ -118,13 +117,11 @@ angular.module('AutoGuru.controllers', [])
     });
   }
   var isMapFrozen = false;
-  google.maps.event.addDomListener(window, 'load', initialize);
-  google.maps.event.addDomListener(map, 'click', freezeMap)
 
   function freezeMap() {
     isMapFrozen = true;
   }
-  //initialize();
+  initialize();
   function updateLoc(pos) {
     if(!$scope.map) {
       initialize();
@@ -144,7 +141,10 @@ angular.module('AutoGuru.controllers', [])
   function updateLocError(error) {
       //alert('Unable to get location: ' + error.message);
   }
-  
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(map, 'click', freezeMap);
+
   $scope.centerOnMe = function() {
     if(!$scope.map) {
       return;
