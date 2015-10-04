@@ -127,6 +127,7 @@ angular.module('AutoGuru.controllers', [])
       initialize();
       return;
     }
+
     $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     if (!isMapFrozen) {
       console.log("Center map");
@@ -143,7 +144,7 @@ angular.module('AutoGuru.controllers', [])
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
-  google.maps.event.addDomListener(map, 'click', freezeMap);
+  google.maps.event.addDomListener(map, 'dragstart', freezeMap);
 
   $scope.centerOnMe = function() {
     if(!$scope.map) {
