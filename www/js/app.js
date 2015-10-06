@@ -21,6 +21,7 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
 })
 .config(function($ionicConfigProvider) {
   $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
+  $ionicConfigProvider.views.swipeBackEnabled(false);
 })
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
