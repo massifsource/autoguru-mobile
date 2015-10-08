@@ -93,7 +93,8 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova'])
     url: "/share",
     views: {
       'menuContent': {
-        templateUrl: "templates/share.html"
+        templateUrl: "templates/share.html",
+        controller: 'ShareCtrl'
       }
     }
   })

@@ -175,4 +175,17 @@ angular.module('AutoGuru.controllers', [])
     timeout           : 27000
   };
   var wpid = navigator.geolocation.watchPosition(updateLoc, updateLocError, geo_options);
+})
+.controller('ShareCtrl', function($scope, $cordovaContacts,  $ionicPlatform, $cordovaSms) {
+  $scope.sendText = function(options) {
+    console.log("SMS");
+    $cordovaSms.send('', 'Check out Autoguru App', options)
+      .then(function() {
+        console.log("SUCCESS");
+        // Success! SMS was sent
+      }, function(error) {
+        console.log("ERROR");
+        // An error occurred
+      });
+   }
 });
