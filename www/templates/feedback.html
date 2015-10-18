@@ -7,18 +7,18 @@
       <div class="list">
         <label class="item item-input item-stacked-label" style="margin: 0; padding: 0; border-left: none; border-right: none; border-top: none">
           <span style="padding-left: 10px" class="input-label">Имя</span>
-          <input style="padding-left: 10px" type="text" ng-model="contact.name" placeholder="Александр Иванов">
+          <input style="padding-left: 10px" type="text" ng-model="appData.feedbackData.contact.name" placeholder="Александр Иванов">
         </label>
         <label class="item item-input item-stacked-label" style="margin: 0; padding: 0; border-left: none; border-right: none; border-top: none">
           <span style="padding-left: 10px" class="input-label">Электронный адрес</span>
-          <input style="padding-left: 10px" type="text" ng-model="contact.email" placeholder="alex@gmail.com">
+          <input style="padding-left: 10px" type="text" ng-model="appData.feedbackData.contact.email" placeholder="alex@gmail.com">
         </label>
         <label class="item item-input item-stacked-label" style="height: 45vh; margin: 0; padding: 0; border: none">
           <span style="padding-left: 10px" class="input-label">Сообщение</span>
-          <textarea full-size ng-model="contact.message" placeholder="Текст сообщения" style="overflow:scroll; padding-left: 10px" rows="15"></textarea>
+          <textarea full-size ng-model="appData.feedbackData.contact.message" placeholder="Текст сообщения" style="overflow:scroll; padding-left: 10px" rows="15"></textarea>
         </label>
       </div>
-      <button class="button button-block button-dark" style="position: absolute; bottom: 0px; width: 100%">
+      <button class="button button-block button-dark" style="position: absolute; bottom: 0px; width: 100%" ng-click="appData.sendFeedback()">
         Отправить
       </button>
     </form>

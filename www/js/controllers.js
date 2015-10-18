@@ -9,6 +9,13 @@ angular.module('AutoGuru.controllers', [])
     cities: {content: []},
     districts: {content: []},
     cityHref: '#/app/district',
+    feedbackData: {
+      contact: {
+        name: '',
+        email: '',
+        message: ''
+      }
+    },
 
     retrieveCities: function() {
       $http({
@@ -64,6 +71,11 @@ angular.module('AutoGuru.controllers', [])
     setDistrict: function(district) {
       $scope.appData.selectedDistrict = district;
       $scope.appData.title = $scope.appData.selectedCity.name + ', ' + district.name;
+    },
+    sendFeedback: function() {
+      // Waiting on Nikolay for server end point.
+      console.log("send feedback method called!");
+      console.log($scope.appData.feedbackData);
     }
   }
 
