@@ -6,4 +6,9 @@
     <button class="button" ng-click="sendText()">Share text</button>
     <button class="button" ng-click="shareViaTwitter('some message', null, 'http://blog.nraboy.com')">Share on Twitter</button>
   </ion-content>
+  <ion-footer-bar class="bar-assertive">
+    <div class="title title-center">
+      {{appData.title}}
+    </div>
+  </ion-footer-bar>
 </ion-view>
