@@ -5,7 +5,7 @@
   <div ng-if="appData.cities.content.length > 0">
     <ion-content>
       <ion-list>
-        <ion-item href="{{appData.cityHref}}" ng-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
+        <ion-item href="{{appData.cityHref}}" collection-repeat="city in appData.cities.content" ng-click="appData.setCity(city)">
           <span>
             {{city.name}}
           </span>
