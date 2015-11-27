@@ -102,27 +102,16 @@ angular.module('AutoGuru.controllers', [])
       var trafficLayer = new google.maps.TrafficLayer();
       trafficLayer.setMap(map)
 
-      //Marker + infowindow + angularjs compiled ng-click
-      /*var contentString = "<div><a ng-click='clickTest()'>Current Location</a></div>";
-      var compiled = $compile(contentString)($scope);
-
-      var infowindow = new google.maps.InfoWindow({
-        content: compiled[0]
-      });*/
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
         icon: 'img/location-16x16.png'
       });
 
-      /*google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
-      });*/
       $scope.map = map;
       $scope.marker = marker;
       $scope.myLatlng = myLatlng;
-      //$scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-      //console.log("loading location");
+
       $ionicLoading.hide();
     }, function(error) {
       alert('Unable to get location: ' + error.message);
