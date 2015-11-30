@@ -109,3 +109,20 @@ body {
 .main-menu-background {
   background-color: black;
 }
+
+.zebra-stripe-light {
+  background-color: #ddd;
+}
+
+.item {
+  border-color: #ddd;
+}
+
+.item .item-content {
+  background-color: transparent !important;
+}
+
+.item-content.activated {
+  background-color: #ccc !important;
+  border-color: #ccc !important;
+}

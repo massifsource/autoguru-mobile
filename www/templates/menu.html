@@ -18,14 +18,8 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/main-menu">
-          Главное меню
-        </ion-item>
-        <ion-item menu-close href="#/app/city">
-          Выбор города
-        </ion-item>
-        <ion-item menu-close href="#/app/agreement">
-          Пользовательское соглашение
+        <ion-item menu-close ng-repeat="link in appData.sideMenuData.links" href="{{link.link}}" ng-class="zebraStripeLineItem($index)">
+          {{link.label}}
         </ion-item>
       </ion-list>
     </ion-content>
