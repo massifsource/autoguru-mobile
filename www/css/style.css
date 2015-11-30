@@ -106,7 +106,6 @@ body {
     transition-duration: 400ms;
 }
 
-/*.pane {
-    background-color: #000;
+.main-menu-background {
+  background-color: black;
 }
-*/

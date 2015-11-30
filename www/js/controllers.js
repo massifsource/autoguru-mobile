@@ -82,18 +82,34 @@ angular.module('AutoGuru.controllers', [])
   $scope.appData.retrieveCities();
   $scope.appData.retrieveDistricts();
 
+  $scope.checkConnection = function() {
+    // states[Connection.UNKNOWN]  = 'Unknown connection';
+    // states[Connection.ETHERNET] = 'Ethernet connection';
+    // states[Connection.WIFI]     = 'WiFi connection';
+    // states[Connection.CELL_2G]  = 'Cell 2G connection';
+    // states[Connection.CELL_3G]  = 'Cell 3G connection';
+    // states[Connection.CELL_4G]  = 'Cell 4G connection';
+    // states[Connection.CELL]     = 'Cell generic connection';
+    // states[Connection.NONE]     = 'No network connection';
+    return navigator.connection.type;
+  };
 })
 .controller('MapCtrl', function($scope, $cordovaGeolocation) {
-  document.addEventListener("deviceready", onDeviceReady, false);
-  var options = {timeout: 10000, maximumAge: 30000, enableHighAccuracy: false};
+  if ($scope.checkConnection() === 'none') {
+    alert("Unable to get location, please check connection and try again.");
+    return;
+  }
 
+  document.addEventListener("deviceready", onDeviceReady, false);
   function onDeviceReady() {
     function initialize() {
       console.log("initialize map");
       var pos;
       var myLatlng;
-      $cordovaGeolocation.getCurrentPosition(options).then(function(pos) {
+      var initOptions = {timeout: 10000, enableHighAccuracy: true};
+      $cordovaGeolocation.getCurrentPosition(initOptions).then(function(pos) {
         myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        console.log(myLatlng);
         var mapOptions = {
           center: myLatlng,
           zoom: 16,
@@ -116,15 +132,18 @@ angular.module('AutoGuru.controllers', [])
 
         $ionicLoading.hide();
       }, function(error) {
-        alert('Unable to get location: ' + error.message);
+        console.log('Unable to get location: ' + error.message);
       });
     }
+
     var isMapFrozen = false;
 
     function freezeMap() {
       isMapFrozen = true;
     }
+
     initialize();
+
     function updateLoc(pos) {
       if(!$scope.map) {
         initialize();
@@ -142,12 +161,14 @@ angular.module('AutoGuru.controllers', [])
       $scope.marker.setMap($scope.map);
       $scope.marker.setPosition($scope.myLatlng);
     }
+
     function updateLocError(error) {
-      alert('Unable to get location: ' + error.message);
+      console.log('Unable to get location: ' + error.message);
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
     google.maps.event.addDomListener(map, 'dragstart', freezeMap);
+    var updateOptions = {timeout: 3000, enableHighAccuracy: true};
 
     $scope.centerOnMe = function() {
       if(!$scope.map) {
@@ -159,7 +180,7 @@ angular.module('AutoGuru.controllers', [])
         showBackdrop: false
       });
 
-      $cordovaGeolocation.getCurrentPosition(options).then(function(pos) {
+      $cordovaGeolocation.getCurrentPosition(updateOptions).then(function(pos) {
         $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter($scope.myLatlng);
         console.log("loading location");
@@ -168,15 +189,20 @@ angular.module('AutoGuru.controllers', [])
         $scope.marker.setPosition($scope.myLatlng);
         $ionicLoading.hide();
       }, function(error) {
-        alert('Unable to get location: ' + error.message);
+        console.log('Unable to get location: ' + error.message);
       });
     };
 
-    var wpid = $cordovaGeolocation.watchPosition(options).then(updateLoc, updateLocError);
+    $cordovaGeolocation.watchPosition(updateOptions).then(updateLoc, updateLocError);
   }
 })
 .controller('MainMenuCtrl', function($scope, $cordovaSocialSharing) {
    $scope.socialShare = function(options) {
+     if ($scope.checkConnection() === 'none') {
+       alert("Unable to get location, please check connection and try again.");
+       return;
+     }
+
      $cordovaSocialSharing.share("Checkout AutoGuru app", "AutoGuru App", "www/img/ionic.png", "http://auto-guru.net");
     };
 });

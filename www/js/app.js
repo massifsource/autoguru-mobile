@@ -33,47 +33,47 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova', 'ngIOS
     controller: 'AppCtrl'
   })
   .state('app.main-menu', {
-      url: "/main-menu",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/main-menu.html",
-          controller: 'MainMenuCtrl'
-        }
+    url: "/main-menu",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/main-menu.html",
+        controller: 'MainMenuCtrl'
       }
-    })
-    .state('app.city', {
-      url: "/city",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/city.html"
-        }
+    }
+  })
+  .state('app.city', {
+    url: "/city",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/city.html"
       }
-    })
-    .state('app.district', {
-      url: "/district",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/district.html"
-        }
+    }
+  })
+  .state('app.district', {
+    url: "/district",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/district.html"
       }
-    })
-    .state('app.taxi', {
-      url: "/taxi",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/taxi.html"
-        }
+    }
+  })
+  .state('app.taxi', {
+    url: "/taxi",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/taxi.html"
       }
-    })
-    .state('app.maps', {
-      url: "/maps",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/maps.html",
-          controller: 'MapCtrl'
-        }
+    }
+  })
+  .state('app.maps', {
+    url: "/maps",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/maps.html",
+        controller: 'MapCtrl'
       }
-    })
+    }
+  })
   .state('app.road-help', {
     url: "/road-help",
     views: {
