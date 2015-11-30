@@ -18,7 +18,8 @@
     "org.apache.cordova.device",
     "org.apache.cordova.console",
     "com.ionic.keyboard",
-    "org.apache.cordova.contacts"
+    "org.apache.cordova.contacts",
+    "cordova-plugin-android-support-v4"
   ],
   "cordovaPlatforms": [
     "ios",

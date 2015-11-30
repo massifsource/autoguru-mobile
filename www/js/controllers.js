@@ -83,103 +83,100 @@ angular.module('AutoGuru.controllers', [])
   $scope.appData.retrieveDistricts();
 
 })
-.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+.controller('MapCtrl', function($scope, $cordovaGeolocation) {
+  document.addEventListener("deviceready", onDeviceReady, false);
+  var options = {timeout: 10000, maximumAge: 30000, enableHighAccuracy: false};
 
-  function initialize() {
-    console.log("intialize");
-    var pos;
-    var myLatlng;
-    navigator.geolocation.getCurrentPosition(function(pos) {
-      myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-      var mapOptions = {
-        center: myLatlng,
-        zoom: 16,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("map"),
-          mapOptions);
+  function onDeviceReady() {
+    function initialize() {
+      console.log("initialize map");
+      var pos;
+      var myLatlng;
+      $cordovaGeolocation.getCurrentPosition(options).then(function(pos) {
+        myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-      var trafficLayer = new google.maps.TrafficLayer();
-      trafficLayer.setMap(map)
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map)
 
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        icon: 'img/location-16x16.png'
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          icon: 'img/location-16x16.png'
+        });
+
+        $scope.map = map;
+        $scope.marker = marker;
+        $scope.myLatlng = myLatlng;
+
+        $ionicLoading.hide();
+      }, function(error) {
+        alert('Unable to get location: ' + error.message);
       });
-
-      $scope.map = map;
-      $scope.marker = marker;
-      $scope.myLatlng = myLatlng;
-
-      $ionicLoading.hide();
-    }, function(error) {
-      alert('Unable to get location: ' + error.message);
-    });
-  }
-  var isMapFrozen = false;
-
-  function freezeMap() {
-    isMapFrozen = true;
-  }
-  initialize();
-  function updateLoc(pos) {
-    if(!$scope.map) {
-      initialize();
-      return;
     }
+    var isMapFrozen = false;
 
-    $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    if (!isMapFrozen) {
-      console.log("Center map");
-      $scope.map.setCenter($scope.myLatlng);
+    function freezeMap() {
+      isMapFrozen = true;
     }
+    initialize();
+    function updateLoc(pos) {
+      if(!$scope.map) {
+        initialize();
+        return;
+      }
 
-    console.log("updateLoc");
-    $scope.marker.setMap(null);
-    $scope.marker.setMap($scope.map);
-    $scope.marker.setPosition($scope.myLatlng);
-  }
-  function updateLocError(error) {
-      //alert('Unable to get location: ' + error.message);
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-  google.maps.event.addDomListener(map, 'dragstart', freezeMap);
-
-  $scope.centerOnMe = function() {
-    if(!$scope.map) {
-      return;
-    }
-    isMapFrozen = false;
-    $scope.loading = $ionicLoading.show({
-      content: 'Getting current location...',
-      showBackdrop: false
-    });
-
-    navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-      $scope.map.setCenter($scope.myLatlng);
-      console.log("loading location");
+      if (!isMapFrozen) {
+        console.log("Center map");
+        $scope.map.setCenter($scope.myLatlng);
+      }
+
+      console.log("updateLoc");
       $scope.marker.setMap(null);
       $scope.marker.setMap($scope.map);
       $scope.marker.setPosition($scope.myLatlng);
-      $ionicLoading.hide();
-    }, function(error) {
-      alert('Unable to get location: ' + error.message);
-    });
-  };
-
-  var geo_options = {
-    enableHighAccuracy: true,
-    maximumAge        : 30000,
-    timeout           : 27000
-  };
-  var wpid = navigator.geolocation.watchPosition(updateLoc, updateLocError, geo_options);
-})
-.controller('MainMenuCtrl', function($scope, $cordovaContacts,  $ionicPlatform, $cordovaSms, $cordovaSocialSharing) {
-   $scope.socialShare = function(options) {
-     console.log("Social Share");
-     $cordovaSocialSharing.share("Checkout AutoGuru app", "AutoGuru App", "www/img/ionic.png", "http://auto-guru.net");
     }
+    function updateLocError(error) {
+      alert('Unable to get location: ' + error.message);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(map, 'dragstart', freezeMap);
+
+    $scope.centerOnMe = function() {
+      if(!$scope.map) {
+        return;
+      }
+      isMapFrozen = false;
+      $scope.loading = $ionicLoading.show({
+        content: 'Getting current location...',
+        showBackdrop: false
+      });
+
+      $cordovaGeolocation.getCurrentPosition(options).then(function(pos) {
+        $scope.myLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        $scope.map.setCenter($scope.myLatlng);
+        console.log("loading location");
+        $scope.marker.setMap(null);
+        $scope.marker.setMap($scope.map);
+        $scope.marker.setPosition($scope.myLatlng);
+        $ionicLoading.hide();
+      }, function(error) {
+        alert('Unable to get location: ' + error.message);
+      });
+    };
+
+    var wpid = $cordovaGeolocation.watchPosition(options).then(updateLoc, updateLocError);
+  }
+})
+.controller('MainMenuCtrl', function($scope, $cordovaSocialSharing) {
+   $scope.socialShare = function(options) {
+     $cordovaSocialSharing.share("Checkout AutoGuru app", "AutoGuru App", "www/img/ionic.png", "http://auto-guru.net");
+    };
 });
