@@ -17,6 +17,34 @@ angular.module('AutoGuru.controllers', [])
       }
     },
 
+    roadHelpData: {
+      phoneNumbers: [
+        {link: "tel: {{18062822399}}", label: "Прокол Колеса"},
+        {link: "tel: {{18062822399}}", label: "Доставка Бензина"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка"},
+        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев"},
+        {link: "tel: {{18062822399}}", label: "Вскрытие Замка"},
+        {link: "tel: {{18062822399}}", label: "Трезвый Водитель"},
+        {link: "tel: {{18062822399}}", label: "Другое"}
+      ]
+    },
+
+    dtpData: {
+      phoneNumbers: [
+        {link: "tel: {{18062822399}}", label: "Аварийные Комиссары"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка"},
+        {link: "tel: {{18062822399}}", label: "Полезная информация"}
+      ]
+    },
+
+    sideMenuData: {
+      links: [
+        {link: "#/app/main-menu", label: "Главное меню"},
+        {link: "#/app/city", label: "Выбор города"},
+        {link: "#/app/agreement", label: "Пользовательское соглашение"}
+      ]
+    },
+
     retrieveCities: function() {
       $http({
         url: '//autoguru-dap.elasticbeanstalk.com/cities',
@@ -38,6 +66,7 @@ angular.module('AutoGuru.controllers', [])
         }
       });
     },
+
     retrieveDistricts: function() {
       $http({
         url: '//autoguru-dap.elasticbeanstalk.com/districts',
@@ -54,6 +83,7 @@ angular.module('AutoGuru.controllers', [])
         }
       });
     },
+
     setCity: function(city) {
       $scope.appData.selectedCity = city;
       $scope.appData.selectedCity.districts = angular.copy($scope.appData.districts.content);
@@ -68,10 +98,12 @@ angular.module('AutoGuru.controllers', [])
       $scope.appData.cityHref = ($scope.appData.selectedCity.districts.length <= 1) ? '#/app/main-menu' : '#/app/district';
       $scope.appData.title = city.name;
     },
+
     setDistrict: function(district) {
       $scope.appData.selectedDistrict = district;
       $scope.appData.title = $scope.appData.selectedCity.name + ', ' + district.name;
     },
+
     sendFeedback: function() {
       // Waiting on Nikolay for server end point.
       console.log("send feedback method called!");
@@ -92,6 +124,10 @@ angular.module('AutoGuru.controllers', [])
     // states[Connection.CELL]     = 'Cell generic connection';
     // states[Connection.NONE]     = 'No network connection';
     return navigator.connection.type;
+  };
+
+  $scope.zebraStripeLineItem = function(idx) {
+    return idx % 2 ? 'zebra-stripe-light' : ''
   };
 })
 .controller('MapCtrl', function($scope, $cordovaGeolocation) {

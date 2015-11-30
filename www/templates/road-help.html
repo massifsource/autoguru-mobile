@@ -3,27 +3,9 @@
     Помощь на дороге
   </ion-nav-title>
   <ion-content>
-    <ion-list>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Прокол Колеса
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Доставка Бензина
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Эвакуатор/Буксировка
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Аккумулятор/Отогрев
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Вскрытие Замка
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Трезвый Водитель
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Другое
+    <ion-list class="list">
+      <ion-item ng-repeat="number in appData.roadHelpData.phoneNumbers" ng-href="{{number.link}}" ng-class="zebraStripeLineItem($index)">
+        {{number.label}}
       </ion-item>
     </ion-list>
   </ion-content>

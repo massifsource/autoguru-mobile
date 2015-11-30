@@ -3,15 +3,9 @@
     Помощь на дороге
   </ion-nav-title>
   <ion-content>
-    <ion-list>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Аварийные Комиссары
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Эвакуатор/Буксировка
-      </ion-item>
-      <ion-item ng-href="tel: {{18062822399}}">
-        Полезная информация
+    <ion-list class="list">
+      <ion-item ng-repeat="number in appData.dtpData.phoneNumbers" ng-href="{{number.link}}" ng-class="zebraStripeLineItem($index)">
+        {{number.label}}
       </ion-item>
     </ion-list>
   </ion-content>
