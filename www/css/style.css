@@ -99,3 +99,9 @@ body {
 .scroll {
     height: 100%;
 }
+
+.menu-animated {
+    -webkit-transition-duration: 400ms;
+    -moz-transition-duration: 400ms;
+    transition-duration: 400ms;
+}
