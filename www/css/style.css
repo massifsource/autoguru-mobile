@@ -32,6 +32,16 @@ body {
     /*border:thin solid black;*/
     text-align:center !important;
     text-decoration: none;
+    margin: 3px;
+    border-radius: 7px;
+}
+
+.col-home-left {
+  margin-left: 0px;
+}
+
+.col-home-right {
+  margin-right: 0px;
 }
 
 .homeContainer p{
@@ -58,6 +68,8 @@ body {
 .home-icon-text {
     font-size: medium;
     color: white;
+    line-height: 100%;
+    padding-top: 7px;
 }
 
 .center{
