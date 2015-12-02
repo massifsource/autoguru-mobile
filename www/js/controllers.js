@@ -86,6 +86,7 @@ angular.module('AutoGuru.controllers', [])
 
     setCity: function(city) {
       $scope.appData.selectedCity = city;
+      $localStorage.setObject('selectedCity', city);
       $scope.appData.selectedCity.districts = angular.copy($scope.appData.districts.content);
 
       for (var i = 0; i < $scope.appData.selectedCity.districts.length; i++) {
@@ -101,6 +102,7 @@ angular.module('AutoGuru.controllers', [])
 
     setDistrict: function(district) {
       $scope.appData.selectedDistrict = district;
+      $localStorage.setObject('selectedDistrict', district);
       $scope.appData.title = $scope.appData.selectedCity.name + ', ' + district.name;
     },
 
@@ -113,6 +115,10 @@ angular.module('AutoGuru.controllers', [])
 
   $scope.appData.retrieveCities();
   $scope.appData.retrieveDistricts();
+
+  if ($localStorage.getObject('selectedCity')) {
+    window.location.href = '#/app/main-menu';
+  }
 
   $scope.checkConnection = function() {
     // states[Connection.UNKNOWN]  = 'Unknown connection';
