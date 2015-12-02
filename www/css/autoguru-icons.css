@@ -1,0 +1,56 @@
+[class^="icon-autoguru-"], [class*=" icon-autoguru-"] {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+/* =======================================================================================
+Example showing how to change the color/size of the icons:
+.icon-autoguru-name {
+	font-size: 32px; // works because "width" & "height" were set using em units
+	color: red; // works for single-colored icons, because "fill" was set to "currentColor"
+}
+======================================================================================== */
+.fill-color1 {
+	fill: #2a2928;
+}
+.fill-color2 {
+	fill: #373635;
+}
+.fill-color3 {
+	fill: #4f4e4d;
+}
+.fill-color4 {
+	fill: #70706f;
+}
+.fill-color5 {
+	fill: #80807e;
+}
+.fill-color6 {
+	fill: #807e7e;
+}
+.fill-color7 {
+	fill: #908f8f;
+}
+.fill-color8 {
+	fill: #b0b0af;
+}
+.fill-color9 {
+	fill: #d0d0d0;
+}
+.fill-color10 {
+	fill: #e7e7e7;
+}
+
+.icon-autoguru-flat_tire {
+	width: 0.70703125em;
+  font-size: 30px;
+  margin-right: 10px
+}
+
+.icon-autoguru-flat_tire-text {
+	width: 0.70703125em;
+  font-size: 20px;
+
+}
