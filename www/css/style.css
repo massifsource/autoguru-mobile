@@ -57,12 +57,27 @@ body {
 
 }
 
+.home-icon-ag-black {
+    font-size:4.0em !important;
+    /*display:flex !important;*/
+    font-size-adjust: inherit;
+    color: black;
+
+}
+
 .call-icon{
     font-size:2.0em !important;
     display:flex !important;
     font-size-adjust: inherit;
     color: darkgreen;
 
+}
+
+.home-icon-text-black {
+    font-size: medium;
+    color: black;
+    line-height: 100%;
+    padding-top: 7px;
 }
 
 .home-icon-text {
