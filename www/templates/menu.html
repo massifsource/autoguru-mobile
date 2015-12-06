@@ -22,8 +22,9 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-repeat="link in appData.sideMenuData.links" href="{{link.link}}" ng-class="zebraStripeLineItem($index)">
-          {{link.label}}
+        <ion-item menu-close collection-repeat="link in appData.sideMenuData.links" href="{{link.link}}" ng-class="zebraStripeLineItem($index)">
+          <!-- <span class="vam"><svg class="icon-autoguru-flat_tire"><use xlink:href="svg/line-item-icons.svg#icon-autoguru-flat_tire"></use></svg></span> -->
+          <span class="small vam">{{link.label}}</span>
         </ion-item>
       </ion-list>
     </ion-content>
