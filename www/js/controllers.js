@@ -136,11 +136,16 @@ angular.module('AutoGuru.controllers', [])
     return idx % 2 ? 'zebra-stripe-light' : ''
   };
 })
-.controller('MapCtrl', function($scope, $cordovaGeolocation) {
+.controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicSideMenuDelegate) {
   if ($scope.checkConnection() === 'none') {
     alert("Unable to get location, please check connection and try again.");
     return;
   }
+  $ionicSideMenuDelegate.canDragContent(false);
+
+  $scope.$on('$locationChangeStart', function(event) {
+    $ionicSideMenuDelegate.canDragContent(true);
+  });
 
   document.addEventListener("deviceready", onDeviceReady, false);
   function onDeviceReady() {
@@ -237,6 +242,7 @@ angular.module('AutoGuru.controllers', [])
 
     $cordovaGeolocation.watchPosition(updateOptions).then(updateLoc, updateLocError);
   }
+
 })
 .controller('MainMenuCtrl', function($scope, $cordovaSocialSharing) {
    $scope.socialShare = function(options) {
