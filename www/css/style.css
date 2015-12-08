@@ -57,11 +57,10 @@ body {
 
 }
 
-.home-icon-ag-black {
+.home-icon-ag {
     font-size:4.0em !important;
     /*display:flex !important;*/
     font-size-adjust: inherit;
-    color: black;
 
 }
 

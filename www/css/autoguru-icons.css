@@ -9,8 +9,14 @@
   color: black;
 }
 
-.icon-autoguru-flat-tire-text {
-	width: 0.70703125em;
-  font-size: 20px;
+.icon-autoguru-road-help {
+	color: black;
+}
 
+.icon-autoguru-dtp {
+	color: white;
+}
+
+.icon-autoguru-no-wheel {
+	color: white;
 }
