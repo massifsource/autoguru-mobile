@@ -58,7 +58,9 @@ body {
 }
 
 .home-icon-ag {
-    font-size:4.0em !important;
+    font-size:4.5em !important;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
     /*display:flex !important;*/
     font-size-adjust: inherit;
 
@@ -76,14 +78,14 @@ body {
     font-size: medium;
     color: black;
     line-height: 100%;
-    padding-top: 7px;
 }
 
 .home-icon-text {
+    margin-top: 0px;
+    padding-top: 0px;
     font-size: medium;
     color: white;
     line-height: 100%;
-    padding-top: 7px;
 }
 
 .center{

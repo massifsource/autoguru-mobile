@@ -6,17 +6,34 @@
 }
 .icon-autoguru-flat-tire {
 	width: 1.083984375em;
-  color: black;
+  color: white;
 }
 
 .icon-autoguru-road-help {
-	color: black;
+	color: white;
 }
 
 .icon-autoguru-dtp {
 	color: white;
+	font-size:5.5em !important;
+}
+
+.icon-autoguru-dtp-2 {
+	color: white;
 }
 
 .icon-autoguru-no-wheel {
+	color: white;
+}
+
+.icon-autoguru-traffic {
+	color: white;
+}
+
+.icon-autoguru-feedback {
+	color: white;
+}
+
+.icon-autoguru-share {
 	color: white;
 }
