@@ -19,13 +19,13 @@ angular.module('AutoGuru.controllers', [])
 
     roadHelpData: {
       phoneNumbers: [
-        {link: "tel: {{18062822399}}", label: "Прокол Колеса"},
-        {link: "tel: {{18062822399}}", label: "Доставка Бензина"},
-        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка"},
-        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев"},
-        {link: "tel: {{18062822399}}", label: "Вскрытие Замка"},
-        {link: "tel: {{18062822399}}", label: "Трезвый Водитель"},
-        {link: "tel: {{18062822399}}", label: "Другое"}
+        {link: "tel: {{18062822399}}", label: "Прокол Колеса", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Доставка Бензина", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Вскрытие Замка", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Трезвый Водитель", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Другое", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"}
       ]
     },
 
