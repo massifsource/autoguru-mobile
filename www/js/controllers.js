@@ -87,6 +87,7 @@ angular.module('AutoGuru.controllers', [])
     setCity: function(city) {
       $scope.appData.selectedCity = city;
       $localStorage.setObject('selectedCity', city);
+      delete localStorage['selectedDistrict'];
       $scope.appData.selectedCity.districts = angular.copy($scope.appData.districts.content);
 
       for (var i = 0; i < $scope.appData.selectedCity.districts.length; i++) {
@@ -116,7 +117,13 @@ angular.module('AutoGuru.controllers', [])
   $scope.appData.retrieveCities();
   $scope.appData.retrieveDistricts();
 
-  if ($localStorage.getObject('selectedCity')) {
+  var selectedCity = $localStorage.getObject('selectedCity');
+  if (selectedCity && Object.keys(selectedCity).length > 0) {
+    $scope.appData.title = selectedCity.name;
+    var selectedDistrict = $localStorage.getObject('selectedDistrict');
+    if (selectedDistrict && Object.keys(selectedDistrict).length > 0) {
+      $scope.appData.title = selectedCity.name + ', ' + selectedDistrict.name;
+    }
     window.location.href = '#/app/main-menu';
   }
 
