@@ -149,6 +149,10 @@ angular.module('AutoGuru.controllers', [])
   $scope.zebraStripeLineItem = function(idx) {
     return idx % 2 ? 'zebra-stripe-light' : ''
   };
+
+  $scope.inCityOrDistrictSelection = function() {
+    return window.location.hash === '#/app/city' || window.location.hash === '#/app/district'
+  };
 })
 .controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicSideMenuDelegate) {
   if ($scope.checkConnection() === 'none') {
