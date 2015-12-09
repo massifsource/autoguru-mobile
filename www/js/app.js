@@ -90,6 +90,14 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova', 'ngIOS
       }
     }
   })
+  .state('app.no-wheel', {
+    url: "/no-wheel",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/no-wheel.html"
+      }
+    }
+  })
   .state('app.feedback', {
     url: "/feedback",
     views: {

@@ -31,8 +31,8 @@ angular.module('AutoGuru.controllers', [])
     noWheelData: {
       phoneNumbers: [
         {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
-        {link: "tel: {{18062822399}}", label: "Трезвый Водитель", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
-        {link: "tel: {{18062822399}}", label: "Такси", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"}
+        {link: "tel: {{18062822399}}", label: "Трезвый Водитель", icon: "svg/line-item-icons.svg#icon-autoguru-sober-driver", style: "icon-autoguru-sober-driver"},
+        {link: "tel: {{18062822399}}", label: "Такси", icon: "svg/line-item-icons.svg#icon-autoguru-taxi", style: "icon-autoguru-taxi"}
       ]
     },
 
