@@ -19,13 +19,20 @@ angular.module('AutoGuru.controllers', [])
 
     roadHelpData: {
       phoneNumbers: [
-        {link: "tel: {{18062822399}}", label: "Прокол Колеса"},
-        {link: "tel: {{18062822399}}", label: "Доставка Бензина"},
-        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка"},
-        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев"},
-        {link: "tel: {{18062822399}}", label: "Вскрытие Замка"},
-        {link: "tel: {{18062822399}}", label: "Трезвый Водитель"},
-        {link: "tel: {{18062822399}}", label: "Другое"}
+        {link: "tel: {{18062822399}}", label: "Прокол Колеса", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Доставка Бензина", icon: "svg/line-item-icons.svg#icon-autoguru-gas-delivery", style: "icon-autoguru-gas-delivery"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев", icon: "svg/line-item-icons.svg#icon-autoguru-battery", style: "icon-autoguru-battery"},
+        {link: "tel: {{18062822399}}", label: "Вскрытие Замка", icon: "svg/line-item-icons.svg#icon-autoguru-unlock-car", style: "icon-autoguru-unlock-car"},
+        {link: "tel: {{18062822399}}", label: "Другое", icon: "svg/line-item-icons.svg#icon-autoguru-other", style: "icon-autoguru-other"}
+      ]
+    },
+
+    noWheelData: {
+      phoneNumbers: [
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Трезвый Водитель", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Такси", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"}
       ]
     },
 
@@ -143,11 +150,16 @@ angular.module('AutoGuru.controllers', [])
     return idx % 2 ? 'zebra-stripe-light' : ''
   };
 })
-.controller('MapCtrl', function($scope, $cordovaGeolocation) {
+.controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicSideMenuDelegate) {
   if ($scope.checkConnection() === 'none') {
     alert("Unable to get location, please check connection and try again.");
     return;
   }
+  $ionicSideMenuDelegate.canDragContent(false);
+
+  $scope.$on('$locationChangeStart', function(event) {
+    $ionicSideMenuDelegate.canDragContent(true);
+  });
 
   document.addEventListener("deviceready", onDeviceReady, false);
   function onDeviceReady() {
@@ -244,6 +256,7 @@ angular.module('AutoGuru.controllers', [])
 
     $cordovaGeolocation.watchPosition(updateOptions).then(updateLoc, updateLocError);
   }
+
 })
 .controller('MainMenuCtrl', function($scope, $cordovaSocialSharing) {
    $scope.socialShare = function(options) {

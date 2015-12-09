@@ -57,6 +57,15 @@ body {
 
 }
 
+.home-icon-ag {
+    font-size:4.5em !important;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    /*display:flex !important;*/
+    font-size-adjust: inherit;
+
+}
+
 .call-icon{
     font-size:2.0em !important;
     display:flex !important;
@@ -65,11 +74,18 @@ body {
 
 }
 
+.home-icon-text-black {
+    font-size: medium;
+    color: black;
+    line-height: 100%;
+}
+
 .home-icon-text {
+    margin-top: 0px;
+    padding-top: 0px;
     font-size: medium;
     color: white;
     line-height: 100%;
-    padding-top: 7px;
 }
 
 .center{
@@ -137,4 +153,16 @@ body {
 .item-content.activated {
   background-color: #ccc !important;
   border-color: #ccc !important;
+}
+
+.vam {
+    vertical-align: middle;
+}
+
+span.vam {
+    display: inline-block;
+}
+
+.vam img {
+    vertical-align: top; /* removes a white gap below image */
 }

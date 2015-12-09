@@ -4,8 +4,13 @@
   </ion-nav-title>
   <ion-content>
     <ion-list class="list">
-      <ion-item ng-repeat="number in appData.roadHelpData.phoneNumbers" ng-href="{{number.link}}" ng-class="zebraStripeLineItem($index)">
-        {{number.label}}
+      <ion-item collection-repeat="number in appData.roadHelpData.phoneNumbers" ng-href="{{number.link}}" ng-class="zebraStripeLineItem($index)">
+        <span class="vam">
+          <svg class="{{number.style}}">
+            <use xlink:href="{{number.icon}}"></use>
+          </svg>
+        </span>
+        <span class="small vam">{{number.label}}</span>
       </ion-item>
     </ion-list>
   </ion-content>
