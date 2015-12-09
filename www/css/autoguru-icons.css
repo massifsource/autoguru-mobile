@@ -7,6 +7,42 @@
 .icon-autoguru-flat-tire {
 	width: 1.083984375em;
   color: black;
+	font-size: 1.5em;
+	margin-right: 10px;
+}
+
+.icon-autoguru-gas-delivery {
+	width: 1.083984375em;
+  color: black;
+	font-size: 1.5em;
+	margin-right: 10px;
+}
+
+.icon-autoguru-towing {
+	width: 1.083984375em;
+  color: black;
+	font-size: 1.5em;
+	margin-right: 10px;
+}
+
+.icon-autoguru-battery {
+	width: 1.083984375em;
+  color: black;
+	font-size: 1.5em;
+	margin-right: 10px;
+}
+
+.icon-autoguru-unlock-car {
+	width: 1.083984375em;
+  color: black;
+	font-size: 1.5em;
+	margin-right: 10px;
+}
+.icon-autoguru-other {
+	width: 1.083984375em;
+  color: black;
+	font-size: 1.5em;
+	margin-right: 10px;
 }
 
 .icon-autoguru-road-help {

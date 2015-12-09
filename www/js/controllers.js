@@ -20,12 +20,19 @@ angular.module('AutoGuru.controllers', [])
     roadHelpData: {
       phoneNumbers: [
         {link: "tel: {{18062822399}}", label: "Прокол Колеса", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
-        {link: "tel: {{18062822399}}", label: "Доставка Бензина", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
-        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
-        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
-        {link: "tel: {{18062822399}}", label: "Вскрытие Замка", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
+        {link: "tel: {{18062822399}}", label: "Доставка Бензина", icon: "svg/line-item-icons.svg#icon-autoguru-gas-delivery", style: "icon-autoguru-gas-delivery"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев", icon: "svg/line-item-icons.svg#icon-autoguru-battery", style: "icon-autoguru-battery"},
+        {link: "tel: {{18062822399}}", label: "Вскрытие Замка", icon: "svg/line-item-icons.svg#icon-autoguru-unlock-car", style: "icon-autoguru-unlock-car"},
+        {link: "tel: {{18062822399}}", label: "Другое", icon: "svg/line-item-icons.svg#icon-autoguru-other", style: "icon-autoguru-other"}
+      ]
+    },
+
+    noWheelData: {
+      phoneNumbers: [
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
         {link: "tel: {{18062822399}}", label: "Трезвый Водитель", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
-        {link: "tel: {{18062822399}}", label: "Другое", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"}
+        {link: "tel: {{18062822399}}", label: "Такси", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"}
       ]
     },
 
