@@ -1,10 +1,10 @@
 <ion-view>
   <ion-nav-title>
-    ДТП
+    Без руля
   </ion-nav-title>
   <ion-content>
     <ion-list class="list">
-      <ion-item collection-repeat="number in appData.dtpData.phoneNumbers" ng-href="{{number.link}}" ng-class="zebraStripeLineItem($index)">
+      <ion-item collection-repeat="number in appData.noWheelData.phoneNumbers" ng-href="{{number.link}}" ng-class="zebraStripeLineItem($index)">
         <span class="vam">
           <svg class="{{number.style}}">
             <use xlink:href="{{number.icon}}"></use>
