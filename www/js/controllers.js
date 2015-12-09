@@ -38,9 +38,9 @@ angular.module('AutoGuru.controllers', [])
 
     dtpData: {
       phoneNumbers: [
-        {link: "tel: {{18062822399}}", label: "Аварийные Комиссары"},
-        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка"},
-        {link: "tel: {{18062822399}}", label: "Полезная информация"}
+        {link: "tel: {{18062822399}}", label: "Аварийные Комиссары", icon: "svg/line-item-icons.svg#icon-autoguru-komissar", style: "icon-autoguru-komissar"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Полезная информация", icon: "svg/line-item-icons.svg#icon-autoguru-useful-info", style: "icon-autoguru-useful-info"}
       ]
     },
 
