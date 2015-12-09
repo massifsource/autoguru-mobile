@@ -4,8 +4,8 @@
       <ion-nav-back-button>
         <!--<i class="ion-arrow-left-c"></i>-->
       </ion-nav-back-button>
-      <ion-nav-buttons side="right" >
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+      <ion-nav-buttons side="right">
+        <button ng-if="!inCityOrDistrictSelection()" class="button button-icon button-clear ion-navicon" menu-toggle="right">
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
@@ -17,7 +17,6 @@
       <h1 class="title">Меню</h1>
     </ion-nav-title>-->
     <ion-header-bar class="bar-assertive">
-
       <h1 class="title">Меню</h1>
     </ion-header-bar>
     <ion-content>
