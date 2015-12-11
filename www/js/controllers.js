@@ -118,6 +118,7 @@ angular.module('AutoGuru.controllers', [])
       // Waiting on Nikolay for server end point.
       console.log("send feedback method called!");
       console.log($scope.appData.feedbackData);
+      window.history.go(-1); return false;
     }
   }
 

@@ -166,3 +166,10 @@ span.vam {
 .vam img {
     vertical-align: top; /* removes a white gap below image */
 }
+
+button.bottom-form-button {
+  position: absolute;
+  bottom: 0px;
+  width: 48%;
+  float: left;
+}

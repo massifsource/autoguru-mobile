@@ -15,19 +15,15 @@
         </label>
         <label class="item item-input item-stacked-label" style="height: 45vh; margin: 0; padding: 0; border: none">
           <span style="padding-left: 10px" class="input-label">Сообщение</span>
-          <textarea full-size ng-model="appData.feedbackData.contact.message" placeholder="Текст сообщения" style="overflow:scroll; padding-left: 10px" rows="15"></textarea>
+          <textarea full-size ng-model="appData.feedbackData.contact.message" placeholder="Текст сообщения" style="padding-left: 10px" rows="3"></textarea>
         </label>
       </div>
-      <button class="button button-block button-dark" style="position: absolute; bottom: 0px; width: 100%" ng-click="appData.sendFeedback()">
+      <button class="button button-block button-dark bottom-form-button" style="left: 1%; z-index: 999;" onclick="window.history.go(-1); return false;">
+        Oтменить
+      </button>
+      <button class="button button-block button-dark bottom-form-button" style="left: 51%; z-index: 999;" ng-click="appData.sendFeedback()">
         Отправить
       </button>
     </form>
   </ion-content>
-  <ion-footer-bar align-title="center" class="bar-assertive">
-    <a href="#/app/city">
-      <div class="title">
-        {{appData.title}}
-      </div>
-    </a>
-  </ion-footer-bar>
 </ion-view>
