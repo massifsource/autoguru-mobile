@@ -21,8 +21,10 @@ angular.module('AutoGuru.controllers', [])
       phoneNumbers: [
         {link: "tel: {{18062822399}}", label: "Прокол Колеса", icon: "svg/line-item-icons.svg#icon-autoguru-flat-tire-chopped", style: "icon-autoguru-flat-tire"},
         {link: "tel: {{18062822399}}", label: "Доставка Бензина", icon: "svg/line-item-icons.svg#icon-autoguru-gas-delivery", style: "icon-autoguru-gas-delivery"},
-        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
-        {link: "tel: {{18062822399}}", label: "Аккумулятор/Отогрев", icon: "svg/line-item-icons.svg#icon-autoguru-battery", style: "icon-autoguru-battery"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-buksir", style: "icon-autoguru-buksir"},
+        {link: "tel: {{18062822399}}", label: "Аккумулятор", icon: "svg/line-item-icons.svg#icon-autoguru-battery", style: "icon-autoguru-battery"},
+        {link: "tel: {{18062822399}}", label: "Отогрев", icon: "svg/line-item-icons.svg#icon-autoguru-car-warmup", style: "icon-autoguru-car-warmup"},
         {link: "tel: {{18062822399}}", label: "Вскрытие Замка", icon: "svg/line-item-icons.svg#icon-autoguru-unlock-car", style: "icon-autoguru-unlock-car"},
         {link: "tel: {{18062822399}}", label: "Другое", icon: "svg/line-item-icons.svg#icon-autoguru-other", style: "icon-autoguru-other"}
       ]
@@ -30,7 +32,8 @@ angular.module('AutoGuru.controllers', [])
 
     noWheelData: {
       phoneNumbers: [
-        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-buksir", style: "icon-autoguru-buksir"},
         {link: "tel: {{18062822399}}", label: "Трезвый Водитель", icon: "svg/line-item-icons.svg#icon-autoguru-sober-driver", style: "icon-autoguru-sober-driver"},
         {link: "tel: {{18062822399}}", label: "Такси", icon: "svg/line-item-icons.svg#icon-autoguru-taxi", style: "icon-autoguru-taxi"}
       ]
@@ -39,7 +42,8 @@ angular.module('AutoGuru.controllers', [])
     dtpData: {
       phoneNumbers: [
         {link: "tel: {{18062822399}}", label: "Аварийные Комиссары", icon: "svg/line-item-icons.svg#icon-autoguru-komissar", style: "icon-autoguru-komissar"},
-        {link: "tel: {{18062822399}}", label: "Эвакуатор/Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Эвакуатор", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
+        {link: "tel: {{18062822399}}", label: "Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-buksir", style: "icon-autoguru-buksir"},
         {link: "tel: {{18062822399}}", label: "Полезная информация", icon: "svg/line-item-icons.svg#icon-autoguru-useful-info", style: "icon-autoguru-useful-info"}
       ]
     },
