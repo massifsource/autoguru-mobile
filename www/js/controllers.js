@@ -44,7 +44,7 @@ angular.module('AutoGuru.controllers', [])
         {link: "tel: {{18062822399}}", label: "Аварийные Комиссары", icon: "svg/line-item-icons.svg#icon-autoguru-komissar", style: "icon-autoguru-komissar"},
         {link: "tel: {{18062822399}}", label: "Эвакуатор", icon: "svg/line-item-icons.svg#icon-autoguru-towing", style: "icon-autoguru-towing"},
         {link: "tel: {{18062822399}}", label: "Буксировка", icon: "svg/line-item-icons.svg#icon-autoguru-buksir", style: "icon-autoguru-buksir"},
-        {link: "tel: {{18062822399}}", label: "Полезная информация", icon: "svg/line-item-icons.svg#icon-autoguru-useful-info", style: "icon-autoguru-useful-info"}
+        {link: "#/app/useful-info", label: "Полезная информация", icon: "svg/line-item-icons.svg#icon-autoguru-useful-info", style: "icon-autoguru-useful-info"}
       ]
     },
 
@@ -53,6 +53,14 @@ angular.module('AutoGuru.controllers', [])
         {link: "#/app/main-menu", label: "Главное меню"},
         {link: "#/app/city", label: "Выбор города"},
         {link: "#/app/agreement", label: "Пользовательское соглашение"}
+      ]
+    },
+
+    usefulInfoData: {
+      links: [
+        {link: "#/app/useful-info-wreck-hints", label: "Подсказки, что делать если попал в аварию"},
+        {link: "#/app/useful-info-no-gibdd", label: "Оформление ДТП без вызова сотрудника ГИБДД"},
+        {link: "#/app/useful-info-europrotocol-help", label: "Рекомендации по оформлению Европротокола"}
       ]
     },
 

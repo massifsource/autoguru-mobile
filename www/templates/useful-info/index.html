@@ -1,0 +1,21 @@
+<ion-view>
+  <ion-nav-title>
+    Полезная информация
+  </ion-nav-title>
+  <ion-content>
+    <ion-list class="list">
+      <ion-item collection-repeat="link in appData.usefulInfoData.links" ng-href="{{link.link}}" ng-class="zebraStripeLineItem($index)">
+        <span class="vam">
+        </span>
+        <span class="small vam">{{link.label}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar align-title="center" class="bar-assertive">
+    <a href="#/app/city">
+      <div class="title">
+        {{appData.title}}
+      </div>
+    </a>
+  </ion-footer-bar>
+</ion-view>
