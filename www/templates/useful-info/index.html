@@ -3,13 +3,23 @@
     Полезная информация
   </ion-nav-title>
   <ion-content>
-    <ion-list class="list">
-      <ion-item collection-repeat="link in appData.usefulInfoData.links" ng-href="{{link.link}}" ng-class="zebraStripeLineItem($index)">
-        <span class="vam">
-        </span>
-        <span class="small vam">{{link.label}}</span>
-      </ion-item>
-    </ion-list>
+    <div class="card">
+      <div class="item item-text-wrap" >
+        <a href="#/app/useful-info-wreck-hints" class="item">
+        Подсказки, что делать если попал в аварию
+        </a>
+      </div>
+      <div class="item item-text-wrap  useful-info-card-grey" >
+        <a href="#/app/useful-info-no-gibdd" class="item  useful-info-card-grey">
+        Оформление ДТП без вызова сотрудника ГИБДД
+        </a>
+      </div>
+      <div class="item item-text-wrap" >
+        <a href="#/app/useful-info-europrotocol-help" class="item ">
+        Рекомендации по оформлению Европротокола
+        </a>
+      </div>
+    </div>
   </ion-content>
   <ion-footer-bar align-title="center" class="bar-assertive">
     <a href="#/app/city">

@@ -56,14 +56,6 @@ angular.module('AutoGuru.controllers', [])
       ]
     },
 
-    usefulInfoData: {
-      links: [
-        {link: "#/app/useful-info-wreck-hints", label: "Подсказки, что делать если попал в аварию"},
-        {link: "#/app/useful-info-no-gibdd", label: "Оформление ДТП без вызова сотрудника ГИБДД"},
-        {link: "#/app/useful-info-europrotocol-help", label: "Рекомендации по оформлению Европротокола"}
-      ]
-    },
-
     retrieveCities: function() {
       $http({
         url: '//autoguru-dap.elasticbeanstalk.com/cities',
