@@ -173,3 +173,31 @@ button.bottom-form-button {
   width: 48%;
   float: left;
 }
+
+.useful-info-section-header {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.useful-info-section-text {
+  margin: 10px;
+}
+
+#useful-info-list {
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+#useful-info-list ul {
+  margin-top: 5px;
+}
+
+#useful-info-list ul li {
+  text-align: left;
+  list-style: disc;
+  margin: 0px 0px;
+}
+
+.useful-info-card-grey {
+  background-color: #ddd;
+}

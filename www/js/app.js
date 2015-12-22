@@ -113,7 +113,41 @@ angular.module('AutoGuru', ['ionic', 'AutoGuru.controllers', 'ngCordova', 'ngIOS
         templateUrl: "templates/agreement.html"
       }
     }
-  });
+  })
+  .state('app.useful-info', {
+    url: "/useful-info",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/useful-info/index.html"
+      }
+    }
+  })
+  .state('app.useful-info-wreck-hints', {
+    url: "/useful-info-wreck-hints",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/useful-info/useful-info-wreck-hints.html"
+      }
+    }
+  })
+  .state('app.useful-info-no-gibdd', {
+    url: "/useful-info-no-gibdd",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/useful-info/useful-info-no-gibdd.html"
+      }
+    }
+  })
+  .state('app.useful-info-europrotocol-help', {
+    url: "/useful-info-europrotocol-help",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/useful-info/useful-info-europrotocol-help.html"
+      }
+    }
+  })
+
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/city');
 })
