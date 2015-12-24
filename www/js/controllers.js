@@ -126,6 +126,8 @@ angular.module('AutoGuru.controllers', [])
     }
   }
 
+  $scope.appData.deviceInformation = ionic.Platform.device();
+
   $scope.appData.retrieveCities();
   $scope.appData.retrieveDistricts();
 
@@ -157,6 +159,18 @@ angular.module('AutoGuru.controllers', [])
 
   $scope.inCityOrDistrictSelection = function() {
     return window.location.hash === '#/app/city' || window.location.hash === '#/app/district'
+  };
+
+  $scope.isLowResolutionPhone = function() {
+    return true;
+    if ($scope.appData.deviceInformation && $scope.appData.deviceInformation.model) {
+      if ($scope.appData.deviceInformation.model.toLowerCase().indexOf('iphone3') !== -1 ||
+        $scope.appData.deviceInformation.model.toLowerCase().indexOf('iphone4') !== -1) {
+          return true;
+        }
+    }
+
+    return false;
   };
 })
 .controller('MapCtrl', function($scope, $cordovaGeolocation, $ionicSideMenuDelegate) {
