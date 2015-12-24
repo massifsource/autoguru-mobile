@@ -162,11 +162,11 @@ angular.module('AutoGuru.controllers', [])
   };
 
   $scope.isLowResolutionPhone = function() {
-    if ($scope.appData.deviceInformation && $scope.appData.deviceInformation.model) {
-      if ($scope.appData.deviceInformation.model.toLowerCase().indexOf('iphone3') !== -1 ||
-        $scope.appData.deviceInformation.model.toLowerCase().indexOf('iphone4') !== -1) {
-          return true;
-        }
+    if (window && window.screen && window.screen.height) {
+      // iphone 5 is the benchmark here...can always change this.
+      if (window.screen.height < 568) {
+        return true;
+      }
     }
 
     return false;
