@@ -162,7 +162,6 @@ angular.module('AutoGuru.controllers', [])
   };
 
   $scope.isLowResolutionPhone = function() {
-    return true;
     if ($scope.appData.deviceInformation && $scope.appData.deviceInformation.model) {
       if ($scope.appData.deviceInformation.model.toLowerCase().indexOf('iphone3') !== -1 ||
         $scope.appData.deviceInformation.model.toLowerCase().indexOf('iphone4') !== -1) {
