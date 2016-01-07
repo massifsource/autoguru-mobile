@@ -161,6 +161,10 @@ angular.module('AutoGuru.controllers', [])
     return window.location.hash === '#/app/city' || window.location.hash === '#/app/district'
   };
 
+  $scope.inMainMenu = function() {
+    return window.location.hash === '#/app/main-menu'
+  };
+
   $scope.isLowResolutionPhone = function() {
     if (window && window.screen && window.screen.height) {
       // iphone 5 is the benchmark here...can always change this.

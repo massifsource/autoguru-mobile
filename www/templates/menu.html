@@ -1,8 +1,7 @@
 <ion-side-menus enable-menu-with-back-views="true">
   <ion-side-menu-content drag-content="true">
     <ion-nav-bar class="bar-assertive" >
-      <ion-nav-back-button>
-        <!--<i class="ion-arrow-left-c"></i>-->
+      <ion-nav-back-button ng-show='!inMainMenu()'>
       </ion-nav-back-button>
       <ion-nav-buttons side="right">
         <button ng-if="!inCityOrDistrictSelection()" class="button button-icon button-clear ion-navicon" menu-toggle="right">
@@ -13,16 +12,12 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="right">
-    <!--<ion-nav-title>
-      <h1 class="title">Меню</h1>
-    </ion-nav-title>-->
     <ion-header-bar class="bar-assertive">
       <h1 class="title">Меню</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
         <ion-item menu-close collection-repeat="link in appData.sideMenuData.links" href="{{link.link}}" ng-class="zebraStripeLineItem($index)">
-          <!-- <span class="vam"><svg class="icon-autoguru-flat_tire"><use xlink:href="svg/line-item-icons.svg#icon-autoguru-flat_tire"></use></svg></span> -->
           <span class="small vam">{{link.label}}</span>
         </ion-item>
       </ion-list>
