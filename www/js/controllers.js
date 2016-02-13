@@ -58,7 +58,7 @@ angular.module('AutoGuru.controllers', [])
 
     retrieveCities: function() {
       $http({
-        url: '//autoguru-dap.elasticbeanstalk.com/cities',
+        url: 'http://autoguru-dap.massifsource.net/cities',
         dataType: 'json',
         method: 'GET',
         headers: {
@@ -80,7 +80,7 @@ angular.module('AutoGuru.controllers', [])
 
     retrieveDistricts: function() {
       $http({
-        url: '//autoguru-dap.elasticbeanstalk.com/districts',
+        url: 'http://autoguru-dap.massifsource.net/districts',
         method: 'GET'
       }).success(function(data) {
         $scope.appData.districts = data;
